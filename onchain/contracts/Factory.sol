@@ -1,5 +1,5 @@
 pragma solidity ^0.8.0;
-import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./Pool.sol";
 import "./Share.sol";
 import "./Dao.sol";
@@ -29,7 +29,7 @@ contract Factory {
 
     function new_dao(IERC721 nft_address, uint nft_id, uint _shares_amount) public initiatorOnly {
         //  Setting up the emission
-        ERC20Votes dao_token = new Share("Crowd Shares", "CS", _shares_amount);
+        IERC20 dao_token = new Share("Crowd Shares", "CS", _shares_amount);
         //  Building the brand new DAO
         Dao dao = new Dao("name", dao_token);
 

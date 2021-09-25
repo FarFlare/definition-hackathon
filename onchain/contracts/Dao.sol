@@ -1,65 +1,61 @@
-pragma solidity ^0.8.2;
+pragma solidity ^0.8.0;
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-import "@openzeppelin/contracts/governance/Governor.sol";
-import "@openzeppelin/contracts/governance/compatibility/GovernorCompatibilityBravo.sol";
-import "@openzeppelin/contracts/governance/extensions/GovernorVotes.sol";
-import "@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFraction.sol";
-import "@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol";
+contract Dao {
 
-contract Dao is Governor, GovernorCompatibilityBravo, GovernorVotes, GovernorVotesQuorumFraction { //}, GovernorTimelockControl {
-    constructor(string memory _name, ERC20Votes _dao_token, TimelockController _timelock)
-    Governor(_name)
-    GovernorVotes(_dao_token)
-    GovernorVotesQuorumFraction(4)
-    GovernorTimelockControl(_timelock)
-    {}
+    IERC20 public dao_token;
+    string public name;
+    uint public proposal_id;
 
-    function votingDelay() public pure override returns (uint256) {
-        return 45; // 10 mins
+    enum proposal_status{ ACTIVE, PASSED, FAILED }
+
+    struct Proposal {
+        proposal_status status;
+        string title;
+        string description;
+        bytes tx;  // Transaction to be executed when proposal passes
+        uint for_votes;  // Amount of "For" votes
+        uint against_votes;  // Amount of "Against" votes
     }
 
-    function votingPeriod() public pure override returns (uint256) {
-        return 45; // 10 mins
+    mapping(uint => Proposal) proposals;  // All proposals by their ids
+    mapping(address => uint) stakes;  // Staked voting power: user => amount
+
+    constructor(string memory _name, IERC20 _dao_token) {
+        name = _name;
+        dao_token = _dao_token;
     }
 
-    function proposalThreshold() public pure override returns (uint256) {
-        return 0;
+    function stake(uint _amount) public {
+        if (dao_token.allowance(msg.sender, address(this)) < _amount) {
+            dao_token.approve(address(this), _amount);
+        }
+        dao_token.transferFrom(msg.sender, address(this), _amount);
+        stakes[msg.sender] += _amount;
     }
 
-    // The functions below are overrides required by Solidity.
-
-    function quorum(uint256 blockNumber) public view override(IGovernor, GovernorVotesQuorumFraction) returns (uint256){
-        return super.quorum(blockNumber);
+    function claim(uint _amount) public {
+        uint user_stake = stakes[msg.sender];
+        if (user_stake > _amount) {
+            dao_token.transfer(msg.sender, user_stake);
+        } else {
+        dao_token.transfer(msg.sender, _amount);
+        }
     }
 
-    function getVotes(address account, uint256 blockNumber) public view override(IGovernor, GovernorVotes) returns (uint256){
-        return super.getVotes(account, blockNumber);
+    function propose(string memory _title, string memory _description, bytes _tx_to_execute) {
+        assert(dao_token.balanceOf(msg.sender) != 0, "You should stake your governance tokens to create a new proposal");
+        proposal_id += 1;
+        proposal = Proposal(proposal_status.ACTIVE,
+                            _title,
+                            _description,
+                            _tx_to_execute,
+                            0, 0);
     }
 
-    function state(uint256 proposalId) public view override(Governor, IGovernor, GovernorTimelockControl) returns (ProposalState){
-        return super.state(proposalId);
+    function vote(uint _proposal_id, bool vote) {  // vote: true - "For", false - "Against"
+        assert(dao_token.balanceOf(msg.sender) != 0, "Please stake your governance tokens to vote");
+
     }
 
-    function propose(address[] memory targets, uint256[] memory values, bytes[] memory calldatas, string memory description)
-    public override(Governor, GovernorCompatibilityBravo, IGovernor) returns (uint256){
-        return super.propose(targets, values, calldatas, description);
-    }
-
-    function _execute(uint256 proposalId, address[] memory targets, uint256[] memory values, bytes[] memory calldatas, bytes32 descriptionHash)
-    internal override(Governor, GovernorTimelockControl) {
-        super._execute(proposalId, targets, values, calldatas, descriptionHash);
-    }
-
-    function _cancel(address[] memory targets, uint256[] memory values, bytes[] memory calldatas, bytes32 descriptionHash)
-    internal override(Governor, GovernorTimelockControl) returns (uint256){
-        return super._cancel(targets, values, calldatas, descriptionHash);
-    }
-
-    function _executor() internal view override(Governor, GovernorTimelockControl) returns (address){
-        return super._executor();
-    }
-
-    function supportsInterface(bytes4 interfaceId) public view override(Governor, IERC165, GovernorTimelockControl) returns (bool){
-        return super.supportsInterface(interfaceId);
-    }
 }
