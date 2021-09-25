@@ -1,10 +1,12 @@
-const Test = artifacts.require("Test")
+const Pool = artifacts.require("Pool");
+const Factory = artifacts.require("Factory");
 
-contract('Test', ([deployer, a, b, c]) => {
+contract('Crowd', ([deployer, a, b, c]) => {
     let test = null
 
     before(async () => {
-        test = await Test.new();
+        pool = await Pool.new();
+        factory = await Factory.new();
     })
 
     describe("Test", async () => {
