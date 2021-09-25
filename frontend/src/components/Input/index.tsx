@@ -1,20 +1,24 @@
-import React, { ReactElement } from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 
 import s from './Input.module.css';
 
-interface Props {
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value?: string | number | string[]
-  name?: string;
+type PropsType = {
+  label?: string;
   id?: string;
+  placeholder?: string;
   className?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input = ({ className, ...restProps}: Props): ReactElement => {
+const Input: FC<PropsType> = ({ label, id, placeholder, value, onChange, className }) => {
   return (
-    <input className={cn(s.root, className)} {...restProps} />
-  )
-}
+    <div className={cn(s.root, className)}>
+      <label htmlFor={id} className={s.label}>{label}</label>
+      <input value={value} onChange={onChange} placeholder={placeholder} id={id} className={s.input} />
+    </div>
+  );
+};
 
 export default Input;

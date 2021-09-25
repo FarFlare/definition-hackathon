@@ -1,53 +1,37 @@
 .root {
-  padding: 20px 50px;
+  padding: 8px 24px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
+  background: #DDE2FF;
 }
 
-.logo_container {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  cursor: pointer;
-}
-
-.logo_text {
-  margin-left: 16px;
-  font-size: 24px;
-  line-height: 28px;
-  font-weight: 600;
-  color: #fff;
-  font-family: 'Averta Demo PE';
-}
-
-.link_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.link {
-  margin-right: 60px;
+.logo {
+  font-weight: bold;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 18px;
+  color: #6C5CE7;
+  margin: 0;
+}
+
+.priceBlock {
+  display: flex;
+  align-items: center;
+}
+
+.price {
   font-weight: 600;
-  color: #fff;
-  font-family: 'Averta Demo PE';
-  cursor: pointer;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.44px;
+  color: #6C5CE7;
 }
 
-@media screen and (max-width: 730px) {
-  .link {
-    display: none; 
-  }
-}
-
-@media screen and (max-width: 560px) {
-  .logo_text {
-    font-size: 16px;
-  }
-  .root {
-    padding: 20px 24px;
-  }
+.iconContainer {
+  display: flex;
+  margin-left: 14px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #6C5CE7;
 }

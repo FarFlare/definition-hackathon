@@ -1,0 +1,131 @@
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.modalTitle {
+  margin: 0;
+  font-family: Inter;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 36px;
+  letter-spacing: 0.25px;
+  color: #6C5CE7;
+}
+
+.closeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(198, 190, 255, 0.5);
+  cursor: pointer;
+}
+
+.button {
+  margin-top: 20px;
+  width: 100%
+}
+
+.nftContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 18px 32px 18px;
+  background: rgba(198, 190, 255, 0.2);
+  border-radius: 15px;
+}
+
+.nftTitleRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 11px;
+}
+
+.nftTtile {
+  margin: 0;
+  font-family: Inter;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.userContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.userAvatar {
+  height: 12px;
+  width: 12px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.userName {
+  font-family: Inter;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.25px;
+  color: #000000;
+}
+
+.nftImageContainer {
+  padding: 36px 12px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(108, 92, 231, 0.6);
+  border-radius: 15px;
+}
+
+.nftImage {
+  height: 304px;
+  border-radius: 15px;
+  background: #2D3436;
+}
+
+.priceBlock {
+  display: flex;
+  margin: auto;
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+
+.price {
+  margin: 0;
+  font-family: Inter;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.25px;
+  color: #000000;
+}
+
+.priceColumn {
+  display: flex;
+  flex-direction: column
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 18px;
+  margin-right: 18px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #6C5CE7;
+  box-sizing: border-box;
+  border-radius: 30px;
+}
+
+.aiend {
+  align-items: end
+}

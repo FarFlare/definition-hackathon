@@ -1,0 +1,20 @@
+.root {
+  background: #C5F2C7;
+  border-radius: 10px;
+  padding: 12px 12px;
+}
+
+.main {
+  height: 6px;
+  background: #52D858;
+  border-radius: 10px;
+  position: relative;
+}
+
+.main_dark {
+  height: 6px;
+  background: #155D18;
+  border-radius: 10px;
+  position: absolute;
+  width: 10%;
+}
