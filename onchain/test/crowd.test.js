@@ -10,9 +10,7 @@ contract('Crowd', ([deployer, a, b, c]) => {
     })
 
     describe("Testing pool", async () => {
-        it('Division', async () => {
-            await test.divide(web3.utils.toWei('100', 'ether'), 50);
-            console.log((await test.res()).toString());
+        it('Creates new party', async () => {
         })
     })
 })

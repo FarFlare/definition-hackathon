@@ -35,7 +35,7 @@ contract Pool {
         owner = msg.sender;
     }
 
-    function new_party(IERC721 _nft_address, uint _nft_id) public returning (uint) {
+    function new_party(IERC721 _nft_address, uint _nft_id) public returns (uint) {
         if (pool_id_by_nft[_nft_address][_nft_id] == 0) {
             return pool_id_by_nft[_nft_address][_nft_id];
         }
