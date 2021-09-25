@@ -6,22 +6,31 @@ import "./DaoToken.sol";
 
 contract Pool {
     address public owner;
-    // For each `IERC721` and it's ID store the WEI amount deposited by user. 
-    // {IERC721 => {IERC721_id => {sender => WEI}}}
-
+    
     struct Party {
+        /*
+        Contains the properties of the target IERC721 token.
+        */
+        // Store the account address.
         IERC721 nft_address;
+        // Store the ID of the token.
         uint nft_id;
-
+        // Store the total deposited sum.
         uint total;
+        // Track whether the acquisition process is already closed.
         bool closed;
+        // Store the array of all unique participanting addresses.
         address[] participants;
     }
 
     uint public pool_id;
-    mapping(uint => mapping(address => uint)) shares; // pool_id => owner => share
+    // Map pool_id => user address => absolute deposit amount.
+    mapping(uint => mapping(address => uint)) shares; 
+    // Store whether the user participates the specific pool. 
+    // pool_id => user address => bool is participant.
     mapping(uint => mapping(address => bool)) participant_in_pool;
     mapping(uint => Party) pools;
+    // Map target IERC721 address and ID to the pool ID.
     mapping(IERC721 => mapping(uint => uint)) pool_id_by_nft;
 
     // Declare the events.
@@ -56,7 +65,7 @@ contract Pool {
             participant_in_pool[pool_id][msg.sender] = true;
         }
         shares[_pool_id][msg.sender] += msg.value;
-        pools[pool_id].total += msg.value;
+        pools[pool_id].total += msg.value;  
         emit NewDeposit(pools[pool_id].nft_address, pools[pool_id].nft_id, msg.sender, msg.value);
     }
 
