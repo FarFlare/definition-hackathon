@@ -8,7 +8,7 @@ contract Pool {
     address public owner;
     // For each NFT address and it's ID store the ETH amount for each user address. 
     // {NFT_address => {NFT_id => {sender_ID => ETH_amount}}}
-    mapping(IERC721 => mapping(uint => mapping(address => uint)))) public pool;
+    mapping(IERC721 => mapping(uint => mapping(address => uint))) public pool;
     event NewDeposit(IERC721 indexed nft_address, uint nft_id, address owner, uint deposit);
     event NewClaim(IERC721 indexed nft_address, uint nft_id,  uint deposit);
 
