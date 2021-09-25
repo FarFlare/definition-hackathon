@@ -1,0 +1,21 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: auto;
+}
+
+.link {
+  font-family: 'Averta Demo PE';
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+  color: #ff9149;
+}
+
+
+@media screen and (min-width: 730px) {
+  .root {
+    display: none;
+  }
+}

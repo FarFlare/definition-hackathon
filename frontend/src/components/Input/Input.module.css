@@ -1,0 +1,12 @@
+.root {
+  box-sizing: border-box;
+  height: 60px;
+  padding: 20px 20px 20px 24px;
+  border: none;
+  border-radius: 15px;
+  background: #ffffff;
+  color: #232326;
+  outline: none;
+  font-family: 'Averta Demo PE';
+  font-size: 18px;
+}
