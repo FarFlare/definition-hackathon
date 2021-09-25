@@ -13,15 +13,14 @@ contract Pool {
         IERC721 nft_address;
         uint nft_id;
 
-
         uint total;
         bool closed;
         address[] participants;
-        mapping(address => uint) shares;
-        mapping(address => bool) participant_in_pool;
     }
 
     uint public pool_id;
+    mapping(uint => mapping(address => uint)) shares; // pool_id => owner => share
+    mapping(uint => mapping(address => bool)) participant_in_pool;
     mapping(uint => Party) pools;
     mapping(IERC721 => mapping(uint => uint)) pool_id_by_nft;
 
@@ -40,8 +39,9 @@ contract Pool {
             return pool_id_by_nft[_nft_address][_nft_id];
         }
         pool_id += 1;
-        Party memory party = new Party(_nft_address, _nft_id);
-        pools.push(party);
+        address[] memory empty;
+        Party memory party = Party(_nft_address, _nft_id, 0, false, empty);
+        pools[pool_id] = party;
         return pool_id;
     }
 
@@ -51,11 +51,11 @@ contract Pool {
         */
         require(_pool_id <= pool_id, "This pools doesn't exist");
         require(pools[pool_id].closed == true, "This pool is closed");
-        if (pools[pool_id].participant_in_pool[msg.sender] != true) {
+        if (participant_in_pool[pool_id][msg.sender] != true) {
             pools[pool_id].participants.push(msg.sender);
-            pools[pool_id].participant_in_pool[msg.sender] = true;
+            participant_in_pool[pool_id][msg.sender] = true;
         }
-        pools[pool_id].shares[msg.sender] += msg.value;
+        shares[_pool_id][msg.sender] += msg.value;
         pools[pool_id].total += msg.value;
         emit NewDeposit(pools[pool_id].nft_address, pools[pool_id].nft_id, msg.sender, msg.value);
     }
@@ -64,7 +64,7 @@ contract Pool {
         /*
         Get the absolute amount of WEI deposited by the specified user to the target `IERC721` token.
         */
-        return pools[_pool_id].shares[msg.sender];
+        return shares[_pool_id][msg.sender];
     }
 
     function get_total(uint _pool_id) public view returns(uint) {
@@ -81,7 +81,7 @@ contract Pool {
         Party storage pool = pools[_pool_id];
         for (uint i = 0; i < pools[_pool_id].participants.length; i++) {
             address recipient = pool.participants[i];
-            _dao_token.transfer(recipient, pool.shares[recipient]*k);
+            _dao_token.transfer(recipient, shares[_pool_id][recipient]*k);
         }
     }
 }
