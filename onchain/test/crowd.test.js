@@ -9,7 +9,7 @@ contract('Crowd', ([deployer, a, b, c]) => {
         factory = await Factory.new();
     })
 
-    describe("Test", async () => {
+    describe("Testing pool", async () => {
         it('Division', async () => {
             await test.divide(web3.utils.toWei('100', 'ether'), 50);
             console.log((await test.res()).toString());

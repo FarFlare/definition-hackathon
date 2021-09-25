@@ -88,6 +88,10 @@ contract Dao is IERC721Receiver {
         }
     }
 
+    function votes_distribution(uint _proposal_id) public returning (uint[]){
+        return [proposals[_proposal_id].votes_for, proposals[_proposal_id].votes_against];
+    }
+
     function outcome(uint _proposal_id) internal {
         if (proposals[_proposal_id].votes_for > proposals[_proposal_id].votes_against) {
             proposals[_proposal_id].status = proposal_status.PASSED;

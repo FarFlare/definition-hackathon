@@ -9,26 +9,22 @@ contract Pool {
     // For each `IERC721` and it's ID store the WEI amount deposited by user. 
     // {IERC721 => {IERC721_id => {sender => WEI}}}
 
-    struct Holder {
-        mapping(address => uint) shares;
-        uint total;
-
-        address[] participants;
-        mapping(address => bool) participant_in_pool;
-
+    struct Party {
         IERC721 nft_address;
         uint nft_id;
 
+
+        uint total;
         bool closed;
+        address[] participants;
+        mapping(address => uint) shares;
+        mapping(address => bool) participant_in_pool;
     }
 
     uint public pool_id;
-    mapping(uint => Holder) pools;
-//    mapping(IERC721 => mapping(uint => mapping(address => uint))) public pool;
-//    mapping(IERC721 => mapping(uint => address[])) public pool_participants;
+    mapping(uint => Party) pools;
+    mapping(IERC721 => mapping(uint => uint)) pool_id_by_nft;
 
-    // Store the total deposit amount for each `IERC721` token.
-    mapping(IERC721 => mapping(uint => uint)) public pool_total;
     // Declare the events.
     event NewDeposit(IERC721 indexed nft_address, uint nft_id, address sender, uint deposit);
     event DistributionDaoToken(IERC721 indexed nft_address, uint nft_id, address sender);
@@ -37,6 +33,16 @@ contract Pool {
 
     constructor(){
         owner = msg.sender;
+    }
+
+    function new_party(IERC721 _nft_address, uint _nft_id) public returning (uint) {
+        if (pool_id_by_nft[_nft_address][_nft_id] == 0) {
+            return pool_id_by_nft[_nft_address][_nft_id];
+        }
+        pool_id += 1;
+        Party memory party = new Party(_nft_address, _nft_id);
+        pools.push(party);
+        return pool_id;
     }
 
     function set_deposit(uint _pool_id) public payable {
@@ -72,7 +78,7 @@ contract Pool {
         require(pools[pool_id].closed == true, "This pool is closed");
         pools[_pool_id].closed = true;
         uint k = _dao_token.totalSupply() / pools[_pool_id].total;
-        Holder storage pool = pools[_pool_id];
+        Party storage pool = pools[_pool_id];
         for (uint i = 0; i < pools[_pool_id].participants.length; i++) {
             address recipient = pool.participants[i];
             _dao_token.transfer(recipient, pool.shares[recipient]*k);
