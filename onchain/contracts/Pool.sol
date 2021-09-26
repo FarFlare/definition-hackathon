@@ -27,7 +27,7 @@ contract Pool {
     }
 
     uint public pool_id;
-//    function get_pool_id() public view returns(uint) {return pool_id;}
+    // function get_pool_id() public view returns(uint) {return pool_id;}
     // Map pool_id => user address => absolute deposit amount.
     mapping(uint => mapping(address => uint)) shares;
     // Store whether the user participates the specific pool. 
@@ -79,6 +79,10 @@ contract Pool {
 
     function get_pool_description(uint _pool_id) public view returns (string memory, string memory) {
         return (pools[_pool_id].party_name, pools[_pool_id].ticker);
+    }
+
+    function get_pool(uint _pool_id) public view returns (Party memory) {
+        return pools[_pool_id];
     }
 
     function check_participant_in_pool(uint _pool_id, address _user) public view returns (bool) {

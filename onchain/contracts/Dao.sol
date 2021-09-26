@@ -35,7 +35,7 @@ contract Dao is IERC721Receiver {
 
     Vault vault;
     mapping(uint => Proposal) proposals;  // Sale proposals by their ids
-    mapping(address => uint) stakes;  // Staked voting power: user => amount
+    mapping(address => uint) stakes;  // Staked voting power: user => amount. DEPRECATED
 
     constructor(string memory _name,
                 IERC20 _dao_token) {
@@ -43,11 +43,11 @@ contract Dao is IERC721Receiver {
         dao_token = _dao_token;
     }
 
-    function stake(uint _amount) public {
-        if (dao_token.allowance(msg.sender, address(this)) < _amount) {
+    function stake(uint _amount, address stake_for) public {
+        if (dao_token.allowance(stake_for, address(this)) < _amount) {
             dao_token.approve(address(this), _amount);
         }
-        dao_token.transferFrom(msg.sender, address(this), _amount);
+        dao_token.transferFrom(stake_for, address(this), _amount);
         stakes[msg.sender] += _amount;
     }
 
@@ -88,6 +88,10 @@ contract Dao is IERC721Receiver {
         proposals[proposal_id] = proposal;
     }
 
+    function get_proposal(uint _proposal_id) public view returns (Proposal memory) {
+        return proposals[_proposal_id];
+    }
+
     function vote(uint _proposal_id, bool _vote) public {  // vote: true - "For", false - "Against"
         require(dao_token.balanceOf(msg.sender) != 0, "Please stake your governance tokens to vote");
         if (_vote == true) {
@@ -101,7 +105,7 @@ contract Dao is IERC721Receiver {
         }
     }
 
-    function votes_distribution(uint _proposal_id) public returns (uint[2] memory){
+    function votes_distribution(uint _proposal_id) public view returns (uint[2] memory){
         return [proposals[_proposal_id].votes_for, proposals[_proposal_id].votes_against];
     }
 
