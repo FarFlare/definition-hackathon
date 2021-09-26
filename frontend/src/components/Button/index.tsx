@@ -10,16 +10,18 @@ type PropsType = {
   type?: "button" | "submit" | "reset" | undefined;
   form?: string;
   small?: boolean;
+  loading?: boolean;
   className?: string;
 }
 
-const Button: FC<PropsType> = ({ active, onClick, className, outlined, form, type, small, children }) => {
+const Button: FC<PropsType> = ({ active, loading, onClick, className, outlined, form, type, small, children }) => {
   return (
     <button 
       className={cn(s.root, outlined && s.outlined, active && s.active, small && s.small, className)}
       onClick={onClick}
       form={form}
       type={type}
+      disabled={loading}
     >
       {children}
     </button>

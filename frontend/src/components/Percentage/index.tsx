@@ -23,7 +23,7 @@ const Percentage: FC<PropsType> = ({ number, small, reverse, type, className }) 
       )}
     >
       <div className={cn(s.main, type === PercentEnum.DANGER && s.main_danger)}>
-        <div className={reverse ? s.main_reverse : s.main_dark}></div>
+        <div className={reverse ? s.main_reverse : s.main_dark} style={{ width: `${number}%` }}></div>
       </div>
     </div>
   );

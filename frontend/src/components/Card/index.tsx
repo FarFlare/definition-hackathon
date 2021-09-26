@@ -4,18 +4,30 @@ import cn from 'classnames';
 import s from './Card.module.css';
 import eth from 'src/assets/images/Etherium.svg';
 import Percentage from '../Percentage/index';
+import { useHistory } from 'react-router-dom';
 
 type PropsType = {
+  id: string;
   title: string;
   collected: number;
   price: number;
-  image: string;
+  image?: string;
+  participants: number;
   className?: string;
 }
 
-const Card: FC<PropsType> = ({ title, image, price, collected, className }) => {
+const Card: FC<PropsType> = ({
+  id,
+  title,
+  image = "https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png",
+  price,
+  collected = 0,
+  participants = 0,
+  className 
+}) => {
+  const { push } = useHistory();
   return (
-    <div className={cn(s.root, className)}>
+    <div className={cn(s.root, className)} onClick={() => push(`id/${id}`)}>
       <div className={s.previewContainer}>
         <img src={image} alt="preview" className={s.preview}/>
       </div>
@@ -35,11 +47,11 @@ const Card: FC<PropsType> = ({ title, image, price, collected, className }) => {
           <p>Participants</p>
         </div>
         <div className={s.collectedRow}>
-          <p>80%</p>
-          <p>1111</p>
+          <p>{collected}%</p>
+          <p>{participants}</p>
         </div>
       </div>
-      <Percentage />
+      <Percentage number={collected} />
     </div>
   )
 }

@@ -6,6 +6,9 @@ import Input from 'src/components/Input/index';
 import Button from 'src/components/Button/index';
 
 import raribleStore from 'src/stores/raribleStore';
+import chainStore from 'src/stores/chainStore';
+
+import { toEth } from 'src/utils/toEth';
 
 import s from "./Modal.module.css";
 
@@ -17,11 +20,16 @@ type PropsType = {
 }
 
 const ModalContent: FC<PropsType> = observer(({ onClose }) => {
-  const { getOrder, order } = raribleStore;
+  const { getOrder, clearOrder, order } = raribleStore;
+  const { poolContract, address } = chainStore;
+
 
   const [url, setUrl] = useState("");
   const [token, setToken] = useState("");
   const [name, setName] = useState("");
+  const [nftId, setNftId] = useState("");
+
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,8 +38,29 @@ const ModalContent: FC<PropsType> = observer(({ onClose }) => {
     if (urlSplit[2] !== 'rarible.com' && urlSplit[3] !== 'token') {
       console.log('err');
     } else {
-      getOrder(urlSplit[4].split('?')[0]);
+      const id = urlSplit[4].split('?')[0];
+      setNftId(id);
+      getOrder(id);
     }
+  }
+
+  const onCreate = async () => {
+    setLoading(true);
+    const tokenAddress = nftId.split(':')[0];;
+    const id = nftId.split(':')[1];
+    console.log(tokenAddress, 'adr');
+    console.log(id, 'id');
+    const hash = await poolContract.methods.new_party(tokenAddress, id, name, token).send({ from: address });
+    console.log(hash, 'resp');
+    await window.web3.eth.getTransaction(
+      hash.transactionHash,
+      async (error, trans) => {
+        console.log(error);
+        console.log(trans);
+        setLoading(false);
+        onClose();
+      }
+    );
   }
 
   return (
@@ -77,7 +106,7 @@ const ModalContent: FC<PropsType> = observer(({ onClose }) => {
           <div className={s.userName}>asdasdas</div>
         </div>
         <div className={s.nftImageContainer}>
-          <img className={s.nftImage} src={order.meta.image.url.PREVIEW} alt="preview"/>
+          <img className={s.nftImage} src={order.meta.image?.url.PREVIEW} alt="preview"/>
         </div>
         <div className={s.priceBlock}>
           <div className={cn(s.priceColumn, s.aiend)}>
@@ -88,12 +117,12 @@ const ModalContent: FC<PropsType> = observer(({ onClose }) => {
             <img src={eth} alt="eth" />
           </div>
           <div className={s.priceColumn}>
-            <p className={s.price}>{+order.bestBidOrder.makeStock / Math.pow(10, 18)}</p>
+            <p className={s.price}>{toEth(+order.bestSellOrder.take.value)}</p>
             <p className={s.price}>ETH</p>
           </div>
         </div>
-        <Button className={s.mb18}>Start</Button>
-        <Button outlined >Back</Button>
+        <Button className={s.mb18} onClick={onCreate} loading={loading}>Start</Button>
+        <Button outlined onClick={clearOrder} loading={loading}>Back</Button>
       </div>}
     </>
   );

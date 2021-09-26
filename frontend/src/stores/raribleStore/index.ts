@@ -11,7 +11,7 @@ class RaribleStore {
   getOrder = async (id: string) => {
     try {
       const response = await axios({
-        url: `https://ethereum-api.rarible.org/v0.1/nft-order/items/${id}`,
+        url: `https://ethereum-api-staging.rarible.org/v0.1/nft-order/items/${id}`,
         withCredentials: false,
         params: {
           includeMeta: true,
@@ -19,7 +19,12 @@ class RaribleStore {
       });
       this.order = response.data;
       console.log(response, 'response');
+      return response.data;
     } catch (error) {}
+  }
+
+  clearOrder = () => {
+    this.order = null;
   }
 };
 

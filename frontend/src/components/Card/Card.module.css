@@ -8,6 +8,7 @@
   border-radius: 30px;
   border: 2px solid #6C5CE7;
   width: 320px;
+  cursor: pointer;
 }
 
 .previewContainer {
