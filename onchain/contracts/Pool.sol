@@ -99,7 +99,7 @@ contract Pool {
         return pools[_pool_id].total;
     }
 
-    function distribute_dao_tokens(uint _pool_id, IERC20 _dao_token, address _dao_address) public {
+    function distribute_dao_tokens(uint _pool_id, address _dao_address, IERC20 _dao_token) public {
         require(pools[pool_id].closed == false, "This pool is closed");
         pools[_pool_id].closed = true;
         uint k = _dao_token.totalSupply() / pools[_pool_id].total;

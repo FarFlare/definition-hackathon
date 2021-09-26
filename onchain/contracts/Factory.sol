@@ -32,11 +32,11 @@ contract Factory {
         //  Setting up the emission
         (string memory party_name, string memory  ticker) = pool.get_pool_description(_pool_id);
         IERC20 dao_token = new DaoToken(party_name, ticker, _shares_amount, address(pool));
-        //  Building the brand new DAO
+        //  Building the brand new DAO.
         Dao dao = new Dao(party_name, dao_token);
         emit NewDao(party_name, address(dao), address(dao_token));
         //  Sending tokens to Dao for distribution
-        pool.distribute_dao_tokens(_pool_id, dao_token, address(dao));
+        pool.distribute_dao_tokens(_pool_id, address(dao), dao_token);
     }
 
 }
