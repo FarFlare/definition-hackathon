@@ -9,6 +9,7 @@ contract Dao is IERC721Receiver {
     IERC20 public dao_token;
     string public name;
     uint public proposal_id;
+    address public initiator;
 
     enum proposal_status{ ACTIVE, PASSED, FAILED }
 
@@ -43,10 +44,12 @@ contract Dao is IERC721Receiver {
 
     constructor(string memory _name,
                 IERC20 _dao_token,
-                Pool _pool) {
+                Pool _pool,
+                address _initiator) {
         name = _name;
         dao_token = _dao_token;
         pool_contract = _pool;
+        initiator = _initiator;
     }
 
     function stake(uint _amount, address stake_for) public {
@@ -131,6 +134,10 @@ contract Dao is IERC721Receiver {
     function outcome(uint _proposal_id) internal {
         if (proposals[_proposal_id].votes_for > proposals[_proposal_id].votes_against) {
             proposals[_proposal_id].status = proposal_status.PASSED;
+            if (proposals[_proposal_id].asset.addr != address(0x0)) {
+                IERC721 asset = IERC721(proposals[_proposal_id].asset.addr);
+                asset.transferFrom(address(this), initiator, proposals[_proposal_id].asset.id);
+            }
         } else {
             proposals[_proposal_id].status = proposal_status.FAILED;
         }

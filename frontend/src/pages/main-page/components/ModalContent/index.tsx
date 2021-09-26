@@ -17,10 +17,9 @@ import eth from "src/assets/images/Etherium.svg"
 
 type PropsType = {
   onClose: () => void;
-  onSuccess: () => void;
 }
 
-const ModalContent: FC<PropsType> = observer(({ onClose, onSuccess }) => {
+const ModalContent: FC<PropsType> = observer(({ onClose }) => {
   const { getOrder, clearOrder, order } = raribleStore;
   const { poolContract, address } = chainStore;
 
@@ -49,14 +48,16 @@ const ModalContent: FC<PropsType> = observer(({ onClose, onSuccess }) => {
     setLoading(true);
     const tokenAddress = nftId.split(':')[0];;
     const id = nftId.split(':')[1];
+    console.log(tokenAddress, 'adr');
+    console.log(id, 'id');
     const hash = await poolContract.methods.new_party(tokenAddress, id, name, token).send({ from: address });
+    console.log(hash, 'resp');
     await window.web3.eth.getTransaction(
       hash.transactionHash,
       async (error, trans) => {
         console.log(error);
         console.log(trans);
         setLoading(false);
-        onSuccess();
         onClose();
       }
     );

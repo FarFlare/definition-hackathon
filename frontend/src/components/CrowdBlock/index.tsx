@@ -25,8 +25,7 @@ type PropsType = {
   userData: {
     user: string,
     eth: string,
-  }[];
-  loading?: boolean;
+  }[]
   onDeposite: (eth: string) => void
 }
 
@@ -39,7 +38,6 @@ const CrowdBlock: FC<PropsType> = ({
   myCrowd,
   userData,
   onDeposite,
-  loading,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [deposit, setDeposit] = useState('0');
@@ -68,7 +66,7 @@ const CrowdBlock: FC<PropsType> = ({
           label="deposite"
           className={s.mb12}
         />
-        <Button loading={loading} onClick={() => onDeposite(deposit)}>add Eth</Button>
+        <Button onClick={() => onDeposite(deposit)}>add Eth</Button>
       </Modal>
         <p className={s.title}>{title}</p>
         <p className={s.description}>{description}</p>

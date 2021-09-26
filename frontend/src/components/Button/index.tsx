@@ -17,7 +17,7 @@ type PropsType = {
 const Button: FC<PropsType> = ({ active, loading, onClick, className, outlined, form, type, small, children }) => {
   return (
     <button 
-      className={cn(s.root, outlined && s.outlined, active && s.active, small && s.small, loading && s.disabled, className)}
+      className={cn(s.root, outlined && s.outlined, active && s.active, small && s.small, className)}
       onClick={onClick}
       form={form}
       type={type}

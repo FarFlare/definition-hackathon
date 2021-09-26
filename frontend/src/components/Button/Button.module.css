@@ -38,12 +38,3 @@
 .percent {
   width: 124px;
 }
-
-.disabled {
-  background: linear-gradient(0deg, #EBE8FF, #EBE8FF);
-  border: 1px solid #6C5CE7;
-  box-sizing: border-box;
-  border-radius: 10px;
-  cursor: not-allowed;
-  color: #6C5CE7;
-}
