@@ -21,7 +21,21 @@ import rarible from "src/assets/images/rarible.svg";
 import close from 'src/assets/images/close.svg';
 
 const CrowdPage: FC = observer(() => {
-  const { getPool, getUserData, setDeposite, pool, poolContract, address } = chainStore;
+  const { 
+    getPool,
+    getUserData,
+    setDeposite,
+    getDaoContract,
+    createProposal,
+    getAllProposals,
+    pool,
+    poolContract,
+    address,
+    depositeLoading,
+    daoContract,
+    proposals,
+    voteFor,
+  } = chainStore;
 
   const [isOpen, setIsOpen] = useState(false);
   const [header, setHeader] = useState("");
@@ -29,6 +43,7 @@ const CrowdPage: FC = observer(() => {
   const [poolId, setPoolId] = useState(0);
   const [myCrowd, setMyCrowd] = useState(0);
   const [userData, setUserData] = useState<any[]>([]);
+  const [addLoading, setAddLoading] = useState(false);
 
   const location = useLocation();
 
@@ -37,8 +52,13 @@ const CrowdPage: FC = observer(() => {
       const id = +location.pathname.split('/')[2]
       setPoolId(id)
       getPool(id);
+      getDaoContract(id);
     }
-  }, [location.pathname, getPool, poolContract]);
+  }, [location.pathname, getPool, getDaoContract, getAllProposals, poolContract]);
+
+  useEffect(() => {
+    getAllProposals();
+  }, [daoContract, getAllProposals]);
 
   useEffect(() => {
     const getAllUserData = async () => {
@@ -71,6 +91,29 @@ const CrowdPage: FC = observer(() => {
     setIsOpen(false);
   };
 
+  const createNewProposal = async () => {
+    setAddLoading(true);
+    const hash = await createProposal(header, description, pool.nft_address, pool.nft_id);
+    await window.web3.eth.getTransaction(
+      hash.transactionHash,
+      async (error, trans) => {
+        setIsOpen(false);
+        setAddLoading(false);
+        getPool(poolId);
+      }
+    );
+  };
+
+  const vote = async (value: boolean, id: number) => {
+    const hash = await voteFor(id, value);
+    await window.web3.eth.getTransaction(
+      hash.transactionHash,
+      async (error, trans) => {
+        getAllProposals();
+      }
+    );
+  }
+
   return (
     <Layout>
       <Modal
@@ -99,7 +142,7 @@ const CrowdPage: FC = observer(() => {
           onChange={(e) => setDescription(e.target.value)}
           className={s.mb18}
         />
-        <Button className={s.button}>Add Proposal</Button>
+        <Button loading={addLoading} onClick={createNewProposal} className={s.button}>Add Proposal</Button>
       </Modal>
       {pool ? <>
         <div className={s.root}>
@@ -128,11 +171,18 @@ const CrowdPage: FC = observer(() => {
             onDeposite={handleDeposite}
             myCrowd={myCrowd}
             userData={userData}
+            loading={depositeLoading}
           />
         </div>
         <div className={s.proposalBlock}>
-          <Proposal />
-          <Proposal />
+          {proposals.map((item: any) => <Proposal 
+            title={item.title}
+            description={item.description}
+            voteAgree={+item.votes_for}
+            voteDisagree={+item.votes_against}
+            id={item.id}
+            onVote={vote}
+            />)}
         </div>
       </>: <div className={s.loaderContainer}>
         <Loader

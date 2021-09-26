@@ -1,10 +1,13 @@
 import React, { FC } from 'react'
 import cn from 'classnames';
+import { useHistory } from 'react-router-dom';
+
+import Percentage from 'src/components/Percentage';
+
+import { round } from 'src/utils/round';
 
 import s from './Card.module.css';
 import eth from 'src/assets/images/Etherium.svg';
-import Percentage from '../Percentage/index';
-import { useHistory } from 'react-router-dom';
 
 type PropsType = {
   id: string;
@@ -47,7 +50,7 @@ const Card: FC<PropsType> = ({
           <p>Participants</p>
         </div>
         <div className={s.collectedRow}>
-          <p>{collected}%</p>
+          <p>{round(collected, 1)}%</p>
           <p>{participants}</p>
         </div>
       </div>

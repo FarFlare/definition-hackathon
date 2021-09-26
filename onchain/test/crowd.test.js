@@ -8,9 +8,8 @@ const MockNft = artifacts.require("MockNft");
 
 contract('Crowd', ([deployer, initiator, a, b, c]) => {
     before(async () => {
-        initiator = "0xF52B67C2241B0F7ab3b7643a0c78DAd0cB39a6A4";
         pool = await Pool.new("0xF52B67C2241B0F7ab3b7643a0c78DAd0cB39a6A4");
-        factory = await Factory.new(pool.address, "0xF52B67C2241B0F7ab3b7643a0c78DAd0cB39a6A4");
+        factory = await Factory.new(pool.address);
         mock_nft = await MockNft.new();
         dao = null;
         dao_token = null;
@@ -131,11 +130,6 @@ contract('Crowd', ([deployer, initiator, a, b, c]) => {
             assert.equal(call.toString(), "60000000000000000000,40000000000000000000");
             proposal = await dao.get_proposal(1);
             assert.equal(proposal.status, 1);
-        })
-        it('Checks asset has been transferred to initiator', async () => {
-            call = await mock_nft.ownerOf(1);
-            console.log(call);
-            assert.equal(call, initiator);
         })
     })
 })
