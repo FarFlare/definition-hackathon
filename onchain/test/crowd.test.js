@@ -7,10 +7,8 @@ const DaoToken = artifacts.require("DaoToken");
 const MockNft = artifacts.require("MockNft");
 
 contract('Crowd', ([deployer, initiator, a, b, c]) => {
-    let test = null
-
     before(async () => {
-        pool = await Pool.new();
+        pool = await Pool.new("0xF52B67C2241B0F7ab3b7643a0c78DAd0cB39a6A4");
         factory = await Factory.new(pool.address);
         mock_nft = await MockNft.new();
         dao = null;
