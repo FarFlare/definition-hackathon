@@ -110,7 +110,7 @@ contract Dao is IERC721Receiver {
 
     function vote(uint _proposal_id, bool _vote) public {  // vote: true - "For", false - "Against"
         require(stakes[msg.sender] != 0, "Please stake your governance tokens to vote");
-        require(vote_tracker[_proposal_id][msg.sender] == true, "This user has already voted");
+        require(vote_tracker[_proposal_id][msg.sender] == false, "This user has already voted");
         if (_vote == true) {
             proposals[_proposal_id].votes_for += stakes[msg.sender];
         } else {

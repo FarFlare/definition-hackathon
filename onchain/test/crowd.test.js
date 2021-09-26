@@ -80,6 +80,10 @@ contract('Crowd', ([deployer, initiator, a, b, c]) => {
             dao = await Dao.at(dao_at);
             dao_token = await DaoToken.at(dao_token_at);
         })
+        it('Get DAO by Pool', async () => {
+            call = await factory.get_dao(1);
+            assert.equal(call, dao.address);
+        })
         it('Checks DAO Tokens supply', async () => {
             call = await dao_token.totalSupply();
             assert.equal(call, emission_amount);

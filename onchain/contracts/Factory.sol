@@ -10,6 +10,7 @@ contract Factory {
     address public initiator;  // Offchain initiator
     address public owner;  // Will allow to setup offchain initiator
     Pool public pool;
+    mapping(uint => Dao) pool_to_dao;
 
     modifier ownerOnly {require(msg.sender == owner); _;}
     modifier initiatorOnly {require(msg.sender == owner); _;}
@@ -35,9 +36,13 @@ contract Factory {
         //  Building the brand new DAO.
         Dao dao = new Dao(party_name, dao_token, pool);
         emit NewDao(party_name, address(dao), address(dao_token));
+        pool_to_dao[_pool_id] = dao;
         //  Sending tokens to Dao for distribution
-//        dao_token.transfer(address(dao), dao_token.totalSupply());
         pool.distribute_dao_tokens(_pool_id, address(dao), dao_token);
+    }
+
+    function get_dao(uint _pool_id) public view returns (address) {
+        return address(pool_to_dao[_pool_id]);
     }
 
 }
