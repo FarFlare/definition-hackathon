@@ -35,7 +35,7 @@ contract Dao is IERC721Receiver {
 
     Vault vault;
     mapping(uint => Proposal) proposals;  // Sale proposals by their ids
-//    mapping(address => uint) stakes;  // Staked voting power: user => amount. DEPRECATED
+    mapping(address => uint) stakes;  // Staked voting power: user => amount. DEPRECATED
 
     constructor(string memory _name,
                 IERC20 _dao_token) {
