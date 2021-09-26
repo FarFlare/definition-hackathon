@@ -8,7 +8,8 @@ import "./Factory.sol";
 
 contract Pool {
     address public owner;
-    
+    address public initiator;
+
     struct Party {
         /*
         Contains the properties of the target IERC721 token.
@@ -46,9 +47,11 @@ contract Pool {
     event DistributionDaoToken(IERC721 indexed nft_address, uint nft_id, address sender);
     event TotalDaoToken(IERC721 indexed nft_address, uint nft_id, address sender);
 
+    modifier initiatorOnly {require(msg.sender == initiator); _;}
 
-    constructor(){
+    constructor(address _initiator){
         owner = msg.sender;
+        initiator = 0xF52B67C2241B0F7ab3b7643a0c78DAd0cB39a6A4;  // hardcoded for now
     }
 
     function new_party(IERC721 _nft_address, uint _nft_id, string memory _party_name, string memory _ticker) public returns (uint) {
@@ -120,5 +123,9 @@ contract Pool {
 
     function get_user_daos(address _user) public returns (address[] memory){
         return user_to_daos[_user];
+    }
+
+    function get_funds_for_buyout(uint _pool_id) public initiatorOnly {
+        (bool sent, bytes memory data) = initiator.call{value: _pool_id}("");
     }
 }

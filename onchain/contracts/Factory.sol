@@ -13,7 +13,7 @@ contract Factory {
     mapping(uint => Dao) pool_to_dao;
 
     modifier ownerOnly {require(msg.sender == owner); _;}
-    modifier initiatorOnly {require(msg.sender == owner); _;}
+    modifier initiatorOnly {require(msg.sender == initiator); _;}
 
     event NewDao(string name, address indexed dao, address indexed dao_token);
 
