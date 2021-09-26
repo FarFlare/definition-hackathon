@@ -1,17 +1,18 @@
 .root {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 240px;
   padding: 18px;
   flex-shrink: 0;
-  border: 2px #6C5CE7;
+  border: solid 1px #6C5CE7;
   box-shadow: 0px 4px 4px rgba(108, 92, 231, 0.6);
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 .title {
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-family: Inter;
   font-weight: 800;
   font-size: 18px;
@@ -33,8 +34,8 @@
   display: flex;
   flex-direction: column;
   padding: 12px 18px;
-  margin-bottom: 13px;
-  background: #F4F2FF;
+  margin-bottom: 12px;
+  border: solid 1px #6C5CE7;
   border-radius: 5px;
 }
 
@@ -119,6 +120,8 @@
   height: 0.5px;
   width: 100%;
   background: #6C5CE7;
+  margin-top: 16px;
+  margin-bottom: 12px;
 }
 
 .modal {
@@ -132,7 +135,7 @@
   padding: 18px;
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(108, 92, 231, 0.6);
-  border-radius: 30px;
+  border-radius: 15px;
   border: 2px #6C5CE7;
   margin: auto;
 }
@@ -157,7 +160,7 @@
   margin: 0;
   font-family: Inter;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 36px;
   letter-spacing: 0.25px;
   color: #6C5CE7;

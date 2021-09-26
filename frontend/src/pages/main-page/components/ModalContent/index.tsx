@@ -17,7 +17,7 @@ type PropsType = {
 }
 
 const ModalContent: FC<PropsType> = observer(({ onClose }) => {
-  const { getOrder } = raribleStore;
+  const { getOrder, order } = raribleStore;
 
   const [url, setUrl] = useState("");
   const [token, setToken] = useState("");
@@ -42,7 +42,7 @@ const ModalContent: FC<PropsType> = observer(({ onClose }) => {
           <img src={close} alt="close" onClick={onClose}/>
         </button>
       </div>
-      <form onSubmit={onSubmit} id="data">
+      {!order ? <form onSubmit={onSubmit} id="data">
         <Input
           className="mb18"
           label="What’s your party name?"
@@ -68,17 +68,16 @@ const ModalContent: FC<PropsType> = observer(({ onClose }) => {
           onChange={(e) => setUrl(e.target.value)}
         />
         <Button className={s.button} form="data" type="submit">Preview</Button>
-      </form>
-      {/* <div className={s.nftContainer}>
+      </form> : <div className={s.nftContainer}>
         <div className={s.nftTitleRow}>
-          <p className={s.nftTtile}>asdasd</p>
+          <p className={s.nftTtile}>{order.meta.name}</p>
         </div>
         <div className={s.userContainer}>
           <div className={s.userAvatar}></div>
           <div className={s.userName}>asdasdas</div>
         </div>
         <div className={s.nftImageContainer}>
-          <div className={s.nftImage}></div>
+          <img className={s.nftImage} src={order.meta.image.url.PREVIEW} alt="preview"/>
         </div>
         <div className={s.priceBlock}>
           <div className={cn(s.priceColumn, s.aiend)}>
@@ -89,11 +88,13 @@ const ModalContent: FC<PropsType> = observer(({ onClose }) => {
             <img src={eth} alt="eth" />
           </div>
           <div className={s.priceColumn}>
-            <p className={s.price}>10000</p>
+            <p className={s.price}>{+order.bestBidOrder.makeStock / Math.pow(10, 18)}</p>
             <p className={s.price}>ETH</p>
           </div>
         </div>
-      </div> */}
+        <Button className={s.mb18}>Start</Button>
+        <Button outlined >Back</Button>
+      </div>}
     </>
   );
 });

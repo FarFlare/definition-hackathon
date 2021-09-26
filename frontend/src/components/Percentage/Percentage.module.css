@@ -1,6 +1,6 @@
 .root {
   background: #C5F2C7;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 12px 12px;
 }
 
@@ -11,10 +11,31 @@
   position: relative;
 }
 
+.main_danger {
+  background: #DE5F98;
+}
+
 .main_dark {
   height: 6px;
   background: #155D18;
   border-radius: 10px;
   position: absolute;
   width: 10%;
+}
+
+.main_reverse {
+  height: 6px;
+  background: #B60151;
+  border-radius: 10px;
+  position: absolute;
+  width: 10%;
+  right: 0;
+}
+
+.danger {
+  background: #FF87BC;
+}
+
+.small {
+  padding: 8px 12px;
 }

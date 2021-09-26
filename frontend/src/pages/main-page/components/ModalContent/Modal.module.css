@@ -9,7 +9,7 @@
   margin: 0;
   font-family: Inter;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 36px;
   letter-spacing: 0.25px;
   color: #6C5CE7;
@@ -86,9 +86,8 @@
 }
 
 .nftImage {
-  height: 304px;
+  width: 100%;
   border-radius: 15px;
-  background: #2D3436;
 }
 
 .priceBlock {
@@ -128,4 +127,8 @@
 
 .aiend {
   align-items: end
+}
+
+.mb18 {
+  margin-bottom: 12px;
 }

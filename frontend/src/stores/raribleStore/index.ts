@@ -17,7 +17,7 @@ class RaribleStore {
           includeMeta: true,
         }
       });
-
+      this.order = response.data;
       console.log(response, 'response');
     } catch (error) {}
   }

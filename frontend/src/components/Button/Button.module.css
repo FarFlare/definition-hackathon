@@ -7,7 +7,7 @@
   letter-spacing: 0.44px;
   font-size: 14px;
   line-height: 14px;
-  border-radius: 15px;
+  border-radius: 5px;
   cursor: pointer;
   background: #6C5CE7;
   color: #FFF;
@@ -25,4 +25,16 @@
   box-shadow: 0px 0.8px 1.5px rgba(108, 92, 231, 0.1), 0px 6px 12px rgba(108, 92, 231, 0.2);
   background: #FFFFFF;
   color: #6C5CE7;
+}
+
+.small {
+  font-size: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  display: flex;
+  justify-content: center;
+}
+
+.percent {
+  width: 124px;
 }

@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import { observer } from "mobx-react-lite";
 import Modal from 'react-modal';
+import cn from 'classnames';
 
 import Card from "src/components/Card";
 import Layout from "src/components/Layout";
@@ -69,7 +70,7 @@ const MainPage: FC = observer(() => {
         onRequestClose={() => setIsOpen(false)}
         contentLabel="Example Modal"
         preventScroll={false}
-        className={order ? s.modalLarge : s.modal}
+        className={cn(s.modal, order && s.modalLarge)}
         overlayClassName={s.overlay}
       >
         <ModalContent onClose={() => setIsOpen(false)}/>

@@ -1,8 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import Web3 from "web3";
 
-const CONTRACT_ADDRESS = "0x91e9D25135fa1E414B4c49Ab89f9d823975EfF67";
-const TOKEN_ADDRESS = "0x082AD51D87ccA280582E036D837D7677067b62a7";
+const POOL_ADRESS = "0x2fc1B8aC2645B2ad4D4c8475a34C7f3d3b23D5ea";
 
 class ChainStore {
   constructor() {

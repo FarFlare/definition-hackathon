@@ -31,11 +31,11 @@ const CrowdBlock: FC = () => {
         overlayClassName={s.overlay}
       >
         <div className={s.modalHeader}>
-        <p className={s.modalTitle}>Strart a PARTY</p>
-        <button className={s.closeButton}>
-          <img src={close} alt="close" onClick={() => setIsOpen(false)}/>
-        </button>
-      </div>
+          <p className={s.modalTitle}>Strart a PARTY</p>
+          <button className={s.closeButton}>
+            <img src={close} alt="close" onClick={() => setIsOpen(false)}/>
+          </button>
+        </div>
         <Input 
           value={deposit}
           onChange={(e) => setDeposit(e.target.value)}
@@ -69,6 +69,8 @@ const CrowdBlock: FC = () => {
         <p className={s.funds}>Your funds: 3% / 0.5 ETH</p>
         <hr className={s.hr} />
         <p className={s.userTitle}>User Party Name</p>
+        <UserBadge />
+        <UserBadge />
         <UserBadge />
     </div>
   );
