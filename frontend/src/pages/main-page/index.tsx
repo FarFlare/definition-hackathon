@@ -33,16 +33,17 @@ Modal.setAppElement("#root");
 
 const MainPage: FC = observer(() => {
   const { order } = raribleStore;
-  const { getPartyNumber, poolContract, pools, poolLoading } = chainStore;
+  const { getPartyNumber, clearPool, poolContract, pools, poolLoading } = chainStore;
 
   const [activeTab, setActiveTab] = useState(TabsEnum.ALL);
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   useEffect(() => {
     if (poolContract) {
+      clearPool();
       getPartyNumber(activeTab);
     }
-  }, [poolContract, activeTab, getPartyNumber]);
+  }, [poolContract, activeTab, getPartyNumber, clearPool]);
 
   console.log(pools, 'pools');
 
@@ -57,7 +58,10 @@ const MainPage: FC = observer(() => {
         className={cn(s.modal, order && s.modalLarge)}
         overlayClassName={s.overlay}
       >
-        <ModalContent onClose={() => setIsOpen(false)} />
+        <ModalContent onClose={() => setIsOpen(false)} onSuccess={() => {
+          clearPool();
+          getPartyNumber(activeTab);
+        }}/>
       </Modal>
       <div className={s.buttonRow}>
         <Button
