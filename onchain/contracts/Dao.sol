@@ -12,17 +12,6 @@ contract Dao is IERC721Receiver {
 
     enum proposal_status{ ACTIVE, PASSED, FAILED }
 
-    struct Proposal {
-        proposal_status status;
-        string title;
-        string description;
-        bytes tx;  // Transaction to be executed when proposal passes.
-        Asset asset;
-        uint votes_for;  // Amount of "For" votes
-        uint votes_against;  // Amount of "Against" votes
-        uint threshold;  // Amount of voting power which took a part in voting process for the proposal to be closed
-    }
-
     struct Asset {
         address addr;  // Address of stored asset
         uint id;  // Should be zero for ERC20 and non-zero for ERC721
@@ -34,9 +23,22 @@ contract Dao is IERC721Receiver {
         Asset[] erc20;  // Locked ERC20
     }
 
+    struct Proposal {
+        proposal_status status;
+        string title;
+        string description;
+        bytes tx;  // Transaction to be executed when proposal passes.
+        Asset asset;
+        uint votes_for;  // Amount of "For" votes
+        uint votes_against;  // Amount of "Against" votes
+        uint threshold;  // Amount of voting power which took a part in voting process for the proposal to be closed
+    }
+
     Vault vault;
     Pool pool_contract;
     mapping(uint => Proposal) proposals;  // Sale proposals by their ids
+    // Store whether the user has voted or not.
+    mapping(uint => mapping(address => bool)) vote_tracker; 
     mapping(address => uint) stakes;  // Staked voting power: user => amount. DEPRECATED
 
     constructor(string memory _name,
@@ -98,6 +100,7 @@ contract Dao is IERC721Receiver {
                                     asset,
                                     0, 0,
                                     (3*dao_token.totalSupply())/4);
+
         proposals[proposal_id] = proposal;
     }
 
@@ -107,12 +110,15 @@ contract Dao is IERC721Receiver {
 
     function vote(uint _proposal_id, bool _vote) public {  // vote: true - "For", false - "Against"
         require(stakes[msg.sender] != 0, "Please stake your governance tokens to vote");
+        require(vote_tracker[_proposal_id][msg.sender] == true, "This user has already voted");
         if (_vote == true) {
             proposals[_proposal_id].votes_for += stakes[msg.sender];
         } else {
             proposals[_proposal_id].votes_against += stakes[msg.sender];
         }
         uint total_votes = proposals[_proposal_id].votes_for + proposals[_proposal_id].votes_against;
+        // Mark that the user has voted for this proposal.
+        vote_tracker[_proposal_id][msg.sender] = true;
         if (total_votes >= proposals[_proposal_id].threshold) {
             outcome(_proposal_id);
         }
