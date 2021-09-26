@@ -1,0 +1,764 @@
+2021-09-26 11:52:33 error: uncaughtException: web3 is not defined
+ReferenceError: web3 is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:4:30)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+2021-09-26 11:53:18 error: uncaughtException: HDWalletProvider is not defined
+ReferenceError: HDWalletProvider is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:5:22)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+2021-09-26 11:54:45 error: uncaughtException: Could not create addresses from your mnemonic or private key(s). Please check that your inputs are correct.
+Error: Could not create addresses from your mnemonic or private key(s). Please check that your inputs are correct.
+    at new HDWalletProvider (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/@truffle/hdwallet-provider/src/index.ts:103:13)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:8:22)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+2021-09-26 11:57:07 error: uncaughtException: web3 is not defined
+ReferenceError: web3 is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:13:30)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+2021-09-26 11:57:21 error: uncaughtException: web3 is not defined
+ReferenceError: web3 is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:13:30)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+2021-09-26 11:57:31 error: uncaughtException: ethers is not defined
+ReferenceError: ethers is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:12:18)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+2021-09-26 11:57:48 error: uncaughtException: Cannot find module 'ethers'
+Require stack:
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts
+Error: Cannot find module 'ethers'
+Require stack:
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:965:15)
+    at Function.Module._resolveFilename (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/tsconfig-paths/lib/register.js:75:40)
+    at Function.Module._load (internal/modules/cjs/loader.js:841:27)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:3:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+2021-09-26 11:59:50 error: uncaughtException: Cannot find module '@rarible/protocol-ethereum-sdk'
+Require stack:
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts
+Error: Cannot find module '@rarible/protocol-ethereum-sdk'
+Require stack:
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:965:15)
+    at Function.Module._resolveFilename (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/tsconfig-paths/lib/register.js:75:40)
+    at Function.Module._load (internal/modules/cjs/loader.js:841:27)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:2:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+2021-09-26 12:07:06 error: uncaughtException: Cannot find module '@rarible/protocol-ethereum-sdk'
+Require stack:
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts
+Error: Cannot find module '@rarible/protocol-ethereum-sdk'
+Require stack:
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:965:15)
+    at Function.Module._resolveFilename (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/tsconfig-paths/lib/register.js:75:40)
+    at Function.Module._load (internal/modules/cjs/loader.js:841:27)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:2:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+2021-09-26 12:09:46 error: uncaughtException: fetch is not defined
+ReferenceError: fetch is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:15:62)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+2021-09-26 12:11:39 error: uncaughtException: (0 , ethereum_provider_1.Ethereum) is not a function
+TypeError: (0 , ethereum_provider_1.Ethereum) is not a function
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:16:38)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+2021-09-26 12:13:07 error: uncaughtException: fetch is not defined
+ReferenceError: fetch is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:16:62)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+2021-09-26 12:14:12 error: uncaughtException: Cannot find module 'web3'
+Require stack:
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts
+Error: Cannot find module 'web3'
+Require stack:
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:965:15)
+    at Function.Module._resolveFilename (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/tsconfig-paths/lib/register.js:75:40)
+    at Function.Module._load (internal/modules/cjs/loader.js:841:27)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:4:14)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+2021-09-26 12:15:01 error: uncaughtException: Cannot find module 'web3'
+Require stack:
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts
+Error: Cannot find module 'web3'
+Require stack:
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:965:15)
+    at Function.Module._resolveFilename (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/tsconfig-paths/lib/register.js:75:40)
+    at Function.Module._load (internal/modules/cjs/loader.js:841:27)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:4:14)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+2021-09-26 12:21:56 error: uncaughtException: fetch is not defined
+ReferenceError: fetch is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:15:66)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 12:22:45 error: uncaughtException: fetch is not defined
+ReferenceError: fetch is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:15:66)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 12:35:37 error: uncaughtException: fetch is not defined
+ReferenceError: fetch is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:15:66)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 12:35:37 error: uncaughtException: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Error: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+    at PollingBlockTracker._performSync (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/eth-block-tracker/src/polling.js:51:24)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+2021-09-26 12:35:38 error: uncaughtException: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Error: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+    at PollingBlockTracker._performSync (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/eth-block-tracker/src/polling.js:51:24)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+2021-09-26 12:35:38 error: uncaughtException: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Error: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+    at PollingBlockTracker._performSync (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/eth-block-tracker/src/polling.js:51:24)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+2021-09-26 12:35:39 error: uncaughtException: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Error: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+    at PollingBlockTracker._performSync (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/eth-block-tracker/src/polling.js:51:24)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+2021-09-26 12:35:39 error: uncaughtException: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Error: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+    at PollingBlockTracker._performSync (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/eth-block-tracker/src/polling.js:51:24)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+2021-09-26 12:35:40 error: uncaughtException: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Error: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+    at PollingBlockTracker._performSync (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/eth-block-tracker/src/polling.js:51:24)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+2021-09-26 12:35:40 error: uncaughtException: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Error: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:610:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1546:19)
+    at Object.onceWrapper (events.js:421:28)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1220:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+    at PollingBlockTracker._performSync (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/eth-block-tracker/src/polling.js:51:24)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+2021-09-26 12:44:35 error: uncaughtException: fetch is not defined
+ReferenceError: fetch is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:16:66)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 12:46:34 error: [POST] /buyout >> StatusCode:: 500, Message:: Cannot read property 'take' of undefined
+2021-09-26 12:47:53 error: [POST] /buyout >> StatusCode:: 500, Message:: Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'TLSSocket'
+    --- property '_httpMessage' closes the circle
+2021-09-26 12:48:16 error: [POST] /buyout >> StatusCode:: 500, Message:: Cannot read property 'emit' of undefined
+2021-09-26 12:52:29 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controllers/index.controller.ts[0m:[93m36[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m36[0m     const pool_contract = new Web3.eth.Contract(pool_abi, "")
+[7m  [0m [91m    ~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controllers/index.controller.ts[0m:[93m36[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m36[0m     const pool_contract = new Web3.eth.Contract(pool_abi, "")
+[7m  [0m [91m    ~~~~~[0m
+
+    at createTSError (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:692:12)
+    at reportTSError (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:696:19)
+    at /Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1158:34
+    at Object.compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1185:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1309:30)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+2021-09-26 13:00:15 error: uncaughtException: Missing initializer in const declaration
+/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:47
+            const order;
+                  ^^^^^
+
+SyntaxError: Missing initializer in const declaration
+    at wrapSafe (internal/modules/cjs/loader.js:1053:16)
+    at Module._compile (internal/modules/cjs/loader.js:1101:27)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+2021-09-26 13:05:44 error: uncaughtException: Missing initializer in const declaration
+/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:52
+            const order;
+                  ^^^^^
+
+SyntaxError: Missing initializer in const declaration
+    at wrapSafe (internal/modules/cjs/loader.js:1053:16)
+    at Module._compile (internal/modules/cjs/loader.js:1101:27)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+2021-09-26 13:07:53 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controllers/index.controller.ts[0m:[93m46[0m:[93m5[0m - [91merror[0m[90m TS1003: [0mIdentifier expected.
+
+[7m46[0m     })
+[7m  [0m [91m    ~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controllers/index.controller.ts[0m:[93m46[0m:[93m5[0m - [91merror[0m[90m TS1003: [0mIdentifier expected.
+
+[7m46[0m     })
+[7m  [0m [91m    ~[0m
+
+    at createTSError (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:692:12)
+    at reportTSError (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:696:19)
+    at /Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1158:34
+    at Object.compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1185:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1309:30)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+2021-09-26 13:14:52 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controllers/index.controller.ts[0m:[93m42[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m42[0m     })
+[7m  [0m [91m    ~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controllers/index.controller.ts[0m:[93m42[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m42[0m     })
+[7m  [0m [91m    ~[0m
+
+    at createTSError (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:692:12)
+    at reportTSError (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:696:19)
+    at /Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1158:34
+    at Object.compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1185:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1309:30)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+2021-09-26 13:15:45 error: uncaughtException: Missing initializer in const declaration
+/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:48
+            const order;
+                  ^^^^^
+
+SyntaxError: Missing initializer in const declaration
+    at wrapSafe (internal/modules/cjs/loader.js:1053:16)
+    at Module._compile (internal/modules/cjs/loader.js:1101:27)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+2021-09-26 13:16:37 error: uncaughtException: fetch is not defined
+ReferenceError: fetch is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:18:66)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 13:17:52 error: uncaughtException: fetch is not defined
+ReferenceError: fetch is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:18:66)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 13:18:05 error: uncaughtException: fetch is not defined
+ReferenceError: fetch is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:18:66)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 13:18:15 error: uncaughtException: fetch is not defined
+ReferenceError: fetch is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:18:66)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 13:18:36 error: uncaughtException: Identifier 'pool_total' has already been declared
+/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:61
+        let pool_total = 1;
+            ^
+
+SyntaxError: Identifier 'pool_total' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1053:16)
+    at Module._compile (internal/modules/cjs/loader.js:1101:27)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+2021-09-26 13:19:50 error: uncaughtException: fetch is not defined
+ReferenceError: fetch is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:18:66)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 13:20:29 error: uncaughtException: fetch is not defined
+ReferenceError: fetch is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:18:66)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 13:21:39 error: uncaughtException: Cannot find module 'fetch'
+Require stack:
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts
+Error: Cannot find module 'fetch'
+Require stack:
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts
+- /Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:965:15)
+    at Function.Module._resolveFilename (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/tsconfig-paths/lib/register.js:75:40)
+    at Function.Module._load (internal/modules/cjs/loader.js:841:27)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:6:18)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+2021-09-26 13:26:31 error: [POST] /buyout >> StatusCode:: 500, Message:: Something went wrong
+2021-09-26 13:27:28 error: uncaughtException: EthereumProvider is not defined
+ReferenceError: EthereumProvider is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:18:18)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 13:28:32 error: uncaughtException: ethereum_provider_1.EthereumProvider is not a constructor
+TypeError: ethereum_provider_1.EthereumProvider is not a constructor
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:19:18)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 13:29:06 error: uncaughtException: EthereumProvider is not defined
+ReferenceError: EthereumProvider is not defined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:19:18)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 13:30:25 error: uncaughtException: Cannot read property 'Contract' of undefined
+TypeError: Cannot read property 'Contract' of undefined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:25:40)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 13:31:08 error: uncaughtException: Cannot read property 'Contract' of undefined
+TypeError: Cannot read property 'Contract' of undefined
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/controllers/index.controller.ts:26:40)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Module.require (internal/modules/cjs/loader.js:1025:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/server.ts:6:1)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Module.m._compile (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1310:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/y.sosunov/git/definition-hackathon/offchain/interactor/node_modules/ts-node/src/index.ts:1313:12)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+2021-09-26 13:31:41 error: [POST] /buyout >> StatusCode:: 500, Message:: Something went wrong

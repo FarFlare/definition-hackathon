@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/logs/debug/.f6f23d1e3e8aadfb451236e6c0ee6e1e693bfa38-audit.json",
+    "files": [
+        {
+            "date": 1632645727454,
+            "name": "/Users/y.sosunov/git/definition-hackathon/offchain/interactor/src/logs/debug/2021-09-26.log",
+            "hash": "bf8f1889b587c14b703b3af4a025c566"
+        }
+    ]
+}
