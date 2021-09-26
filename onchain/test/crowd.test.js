@@ -84,12 +84,12 @@ contract('Crowd', ([deployer, initiator, a, b, c]) => {
             call = await dao_token.totalSupply();
             assert.equal(call, emission_amount);
         })
-        it('Checks DAO Tokens are transferred to Pool', async () => {
-            call = await dao_token.balanceOf(a);
+        it('Checks DAO Tokens are transferred to Stake', async () => {
+            call = await dao.get_stake(a);
+            assert.equal(call.toString(), web3.utils.toWei("30", "ether"));
+            call = await dao.get_stake(b);
             assert.equal(call, web3.utils.toWei("30", "ether"));
-            call = await dao_token.balanceOf(b);
-            assert.equal(call, web3.utils.toWei("30", "ether"));
-            call = await dao_token.balanceOf(c);
+            call = await dao.get_stake(c);
             assert.equal(call, web3.utils.toWei("40", "ether"));
         })
     })
@@ -113,15 +113,21 @@ contract('Crowd', ([deployer, initiator, a, b, c]) => {
             call = (await dao.proposal_id()).toNumber();
             assert.equal(call, 1);
             proposal = await dao.get_proposal(1);
+            assert.equal(proposal.status, 0);
             assert.equal(proposal.title.toString(), "Let's sell?");
         })
         it('Vote for proposal', async () => {
             await dao.vote(1, true, {from: a});
             call = await dao.votes_distribution(1);
-            console.log(call);
-            // assert.equal(call, "Let's sell?");
-            // await dao.vote(1, true, {from: b});
-            // await dao.vote(1, false, {from: c});
+            assert.equal(call.toString(), "30000000000000000000,0");
+            await dao.vote(1, true, {from: b});
+            call = await dao.votes_distribution(1);
+            assert.equal(call.toString(), "60000000000000000000,0");
+            await dao.vote(1, false, {from: c});
+            call = await dao.votes_distribution(1);
+            assert.equal(call.toString(), "60000000000000000000,40000000000000000000");
+            proposal = await dao.get_proposal(1);
+            assert.equal(proposal.status, 1);
         })
     })
 })

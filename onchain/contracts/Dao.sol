@@ -2,6 +2,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+import "./Pool.sol";
 
 contract Dao is IERC721Receiver {
 
@@ -10,17 +11,6 @@ contract Dao is IERC721Receiver {
     uint public proposal_id;
 
     enum proposal_status{ ACTIVE, PASSED, FAILED }
-
-    struct Proposal {
-        proposal_status status;
-        string title;
-        string description;
-        bytes tx;  // Transaction to be executed when proposal passes
-        Asset asset;
-        uint votes_for;  // Amount of "For" votes
-        uint votes_against;  // Amount of "Against" votes
-        uint threshold;  // Amount of voting power which took a part in voting process for the proposal to be closed
-    }
 
     struct Asset {
         address addr;  // Address of stored asset
@@ -33,22 +23,47 @@ contract Dao is IERC721Receiver {
         Asset[] erc20;  // Locked ERC20
     }
 
+    struct Proposal {
+        proposal_status status;
+        string title;
+        string description;
+        bytes tx;  // Transaction to be executed when proposal passes.
+        Asset asset;
+        uint votes_for;  // Amount of "For" votes
+        uint votes_against;  // Amount of "Against" votes
+        uint threshold;  // Amount of voting power which took a part in voting process for the proposal to be closed
+    }
+
     Vault vault;
+    Pool pool_contract;
     mapping(uint => Proposal) proposals;  // Sale proposals by their ids
+    // Store whether the user has voted or not.
+    mapping(uint => mapping(address => bool)) vote_tracker; 
     mapping(address => uint) stakes;  // Staked voting power: user => amount. DEPRECATED
 
     constructor(string memory _name,
-                IERC20 _dao_token) {
+                IERC20 _dao_token,
+                Pool _pool) {
         name = _name;
         dao_token = _dao_token;
+        pool_contract = _pool;
     }
 
     function stake(uint _amount, address stake_for) public {
         if (dao_token.allowance(stake_for, address(this)) < _amount) {
             dao_token.approve(address(this), _amount);
         }
-        dao_token.transferFrom(stake_for, address(this), _amount);
-        stakes[msg.sender] += _amount;
+        dao_token.transferFrom(msg.sender, address(this), _amount);
+        stakes[stake_for] += _amount;
+    }
+
+    function auto_stake(uint _amount, address _stake_for) public {
+        dao_token.transferFrom(address(pool_contract), address(this), _amount);
+        stakes[_stake_for] += _amount;
+    }
+
+    function get_stake(address _user) public view returns (uint){
+        return stakes[_user];
     }
 
     function claim(uint _amount) public {  // 50
@@ -56,16 +71,13 @@ contract Dao is IERC721Receiver {
         if (user_stake < _amount) {  // 2*50 < 50
             dao_token.transfer(msg.sender, user_stake);
         } else {
-            if (user_stake < _amount) {
-                dao_token.transfer(msg.sender, user_stake);
-            } else {
-                dao_token.transfer(msg.sender, _amount);
+            dao_token.transfer(msg.sender, _amount);
             }
-        }
+        
     }
 
     function propose_tx(string memory _title, string memory _description, bytes memory _tx_to_execute) public {
-        require(dao_token.balanceOf(msg.sender) != 0, "Please stake your governance tokens to create a new proposal");
+        require(stakes[msg.sender] != 0, "Please stake your governance tokens to create a new proposal");
         proposal_id += 1;
         Proposal memory proposal = Proposal(proposal_status.ACTIVE,
                                             _title,
@@ -88,6 +100,7 @@ contract Dao is IERC721Receiver {
                                     asset,
                                     0, 0,
                                     (3*dao_token.totalSupply())/4);
+
         proposals[proposal_id] = proposal;
     }
 
@@ -96,13 +109,16 @@ contract Dao is IERC721Receiver {
     }
 
     function vote(uint _proposal_id, bool _vote) public {  // vote: true - "For", false - "Against"
-        require(dao_token.balanceOf(msg.sender) != 0, "Please stake your governance tokens to vote");
+        require(stakes[msg.sender] != 0, "Please stake your governance tokens to vote");
+        require(vote_tracker[_proposal_id][msg.sender] == true, "This user has already voted");
         if (_vote == true) {
             proposals[_proposal_id].votes_for += stakes[msg.sender];
         } else {
             proposals[_proposal_id].votes_against += stakes[msg.sender];
         }
         uint total_votes = proposals[_proposal_id].votes_for + proposals[_proposal_id].votes_against;
+        // Mark that the user has voted for this proposal.
+        vote_tracker[_proposal_id][msg.sender] = true;
         if (total_votes >= proposals[_proposal_id].threshold) {
             outcome(_proposal_id);
         }
@@ -116,7 +132,7 @@ contract Dao is IERC721Receiver {
         if (proposals[_proposal_id].votes_for > proposals[_proposal_id].votes_against) {
             proposals[_proposal_id].status = proposal_status.PASSED;
         } else {
-        proposals[_proposal_id].status = proposal_status.FAILED;
+            proposals[_proposal_id].status = proposal_status.FAILED;
         }
     }
 

@@ -1,6 +1,7 @@
 pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "./Dao.sol";
 import "./DaoToken.sol";
 import "./Factory.sol";
 
@@ -108,9 +109,11 @@ contract Pool {
         pools[_pool_id].closed = true;
         uint k = _dao_token.totalSupply() / pools[_pool_id].total;
         Party storage pool = pools[_pool_id];
+        Dao dao = Dao(_dao_address);
+        _dao_token.approve(_dao_address, _dao_token.totalSupply());
         for (uint i = 0; i < pools[_pool_id].participants.length; i++) {
             address recipient = pool.participants[i];
-            _dao_token.transfer(recipient, shares[_pool_id][recipient]*k);
+            dao.auto_stake(shares[_pool_id][recipient]*k, recipient);
             user_to_daos[recipient].push(_dao_address);
         }
     }
