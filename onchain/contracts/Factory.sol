@@ -36,7 +36,7 @@ contract Factory {
         Dao dao = new Dao(party_name, dao_token);
         emit NewDao(party_name, address(dao), address(dao_token));
         //  Sending tokens to Dao for distribution
-        pool.distribute_dao_tokens(_pool_id, dao_token);
+        pool.distribute_dao_tokens(_pool_id, dao_token, address(dao));
     }
 
 }

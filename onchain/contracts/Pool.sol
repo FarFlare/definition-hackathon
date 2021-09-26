@@ -29,14 +29,14 @@ contract Pool {
 //    function get_pool_id() public view returns(uint) {return pool_id;}
     // Map pool_id => user address => absolute deposit amount.
     mapping(uint => mapping(address => uint)) shares;
-
     // Store whether the user participates the specific pool. 
     // pool_id => user address => bool is participant.
     mapping(uint => mapping(address => bool)) participant_in_pool;
     mapping(uint => Party) pools;
-
     // Map target IERC721 address and ID to the pool ID.
     mapping(IERC721 => mapping(uint => uint)) pool_id_by_nft;
+    // Map users to all DAOs they've ever participated.
+    mapping(address => address[]) user_to_daos;
 
     // Declare the events.
     event NewDeposit(IERC721 indexed nft_address, uint indexed nft_id, address sender, uint deposit);
@@ -98,7 +98,7 @@ contract Pool {
         return pools[_pool_id].total;
     }
 
-    function distribute_dao_tokens(uint _pool_id, IERC20 _dao_token) public {
+    function distribute_dao_tokens(uint _pool_id, IERC20 _dao_token, address _dao_address) public {
         require(pools[pool_id].closed == false, "This pool is closed");
         pools[_pool_id].closed = true;
         uint k = _dao_token.totalSupply() / pools[_pool_id].total;
@@ -106,6 +106,11 @@ contract Pool {
         for (uint i = 0; i < pools[_pool_id].participants.length; i++) {
             address recipient = pool.participants[i];
             _dao_token.transfer(recipient, shares[_pool_id][recipient]*k);
+            user_to_daos[recipient].push(_dao_address);
         }
+    }
+
+    function get_user_daos(address _user) public returns (address[] memory){
+        return user_to_daos[_user];
     }
 }
