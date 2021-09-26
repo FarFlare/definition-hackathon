@@ -34,7 +34,6 @@ contract Dao is IERC721Receiver {
 
     Vault vault;
     mapping(uint => Proposal) proposals;  // Sale proposals by their ids
-    mapping(uint => Proposal) sale_proposals; // Non sale proposals by their ids
     mapping(address => uint) stakes;  // Staked voting power: user => amount
 
     constructor(string memory _name,
@@ -64,21 +63,21 @@ contract Dao is IERC721Receiver {
         }
     }
 
-    function propose(string memory _title, string memory _description, bytes memory _tx_to_execute, IERC721 indexed _nft_address, uint _nft_id) public {
+    function propose_tx(string memory _title, string memory _description, bytes memory _tx_to_execute) public {
         require(dao_token.balanceOf(msg.sender) != 0, "Please stake your governance tokens to create a new proposal");
         proposal_id += 1;
         Proposal memory proposal = Proposal(proposal_status.ACTIVE,
                                             _title,
                                             _description,
                                             _tx_to_execute,
-                                            _nft_address,
-                                            _nft_id,
+                                            address(0x0),
+                                            0,
                                             0, 0,
                                             (3*dao_token.totalSupply())/4);
         proposals[proposal_id] = proposal;
     }
 
-    function propose_sell(string memory _title, string memory _description, bytes memory _tx_to_execute, IERC721 indexed _nft_address, uint _nft_id) public {
+    function propose_sell(string memory _title, string memory _description, bytes memory _tx_to_execute, IERC721 _nft_address, uint _nft_id) public {
         proposal_id += 1;
         Proposal memory proposal = Proposal(proposal_status.ACTIVE,
                                     _title,
@@ -88,8 +87,7 @@ contract Dao is IERC721Receiver {
                                     _nft_id,
                                     0, 0,
                                     (3*dao_token.totalSupply())/4);
-        sale_proposals[proposal_id] = proposal;
-        
+        proposals[proposal_id] = proposal;
     }
 
     function vote(uint _proposal_id, bool _vote) public {  // vote: true - "For", false - "Against"

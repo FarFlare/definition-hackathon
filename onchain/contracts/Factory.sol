@@ -14,6 +14,8 @@ contract Factory {
     modifier ownerOnly {require(msg.sender == owner); _;}
     modifier initiatorOnly {require(msg.sender == owner); _;}
 
+    event NewDao(string name, address indexed dao, address indexed dao_token);
+
     constructor(Pool _pool) {
         owner = msg.sender;
         initiator = msg.sender;
@@ -28,11 +30,12 @@ contract Factory {
 
     function new_dao(uint _shares_amount, uint _pool_id) public initiatorOnly {
         //  Setting up the emission
-        IERC20 dao_token = new DaoToken("Crowd Shares", "CS", _shares_amount);
+        (string memory party_name, string memory  ticker) = pool.get_pool_description(_pool_id);
+        IERC20 dao_token = new DaoToken(party_name, ticker, _shares_amount, address(pool));
         //  Building the brand new DAO
-        new Dao("name", dao_token);
+        Dao dao = new Dao(party_name, dao_token);
+        emit NewDao(party_name, address(dao), address(dao_token));
         //  Sending tokens to Dao for distribution
-        dao_token.transfer(address(pool), dao_token.totalSupply());
         pool.distribute_dao_tokens(_pool_id, dao_token);
     }
 

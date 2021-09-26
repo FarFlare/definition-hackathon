@@ -11,6 +11,8 @@ contract Pool {
         /*
         Contains the properties of the target IERC721 token.
         */
+        string party_name;
+        string ticker;
         // Store the account address.
         IERC721 nft_address;
         // Store the ID of the token.
@@ -24,17 +26,21 @@ contract Pool {
     }
 
     uint public pool_id;
+//    function get_pool_id() public view returns(uint) {return pool_id;}
     // Map pool_id => user address => absolute deposit amount.
-    mapping(uint => mapping(address => uint)) shares; 
+    mapping(uint => mapping(address => uint)) shares;
+
     // Store whether the user participates the specific pool. 
     // pool_id => user address => bool is participant.
     mapping(uint => mapping(address => bool)) participant_in_pool;
     mapping(uint => Party) pools;
+
     // Map target IERC721 address and ID to the pool ID.
     mapping(IERC721 => mapping(uint => uint)) pool_id_by_nft;
 
     // Declare the events.
-    event NewDeposit(IERC721 indexed nft_address, uint nft_id, address sender, uint deposit);
+    event NewDeposit(IERC721 indexed nft_address, uint indexed nft_id, address sender, uint deposit);
+    event NewParty(IERC721 indexed nft_address, uint indexed nft_id, uint indexed pool_id);
     event DistributionDaoToken(IERC721 indexed nft_address, uint nft_id, address sender);
     event TotalDaoToken(IERC721 indexed nft_address, uint nft_id, address sender);
 
@@ -43,14 +49,15 @@ contract Pool {
         owner = msg.sender;
     }
 
-    function new_party(IERC721 _nft_address, uint _nft_id) public returns (uint) {
-        if (pool_id_by_nft[_nft_address][_nft_id] == 0) {
+    function new_party(IERC721 _nft_address, uint _nft_id, string memory _party_name, string memory _ticker) public returns (uint) {
+        if (pool_id_by_nft[_nft_address][_nft_id] != 0) {
             return pool_id_by_nft[_nft_address][_nft_id];
         }
         pool_id += 1;
         address[] memory empty;
-        Party memory party = Party(_nft_address, _nft_id, 0, false, empty);
+        Party memory party = Party(_party_name, _ticker, _nft_address, _nft_id, 0, false, empty);
         pools[pool_id] = party;
+        emit NewParty(_nft_address, _nft_id, pool_id);
         return pool_id;
     }
 
@@ -59,7 +66,7 @@ contract Pool {
         Receive the payment and update the pool statistics.
         */
         require(_pool_id <= pool_id, "This pools doesn't exist");
-        require(pools[pool_id].closed == true, "This pool is closed");
+        require(pools[pool_id].closed == false, "This pool is closed");
         if (participant_in_pool[pool_id][msg.sender] != true) {
             pools[pool_id].participants.push(msg.sender);
             participant_in_pool[pool_id][msg.sender] = true;
@@ -69,14 +76,22 @@ contract Pool {
         emit NewDeposit(pools[pool_id].nft_address, pools[pool_id].nft_id, msg.sender, msg.value);
     }
 
-    function get_absolute(uint _pool_id) public view returns (uint) {
+    function get_pool_description(uint _pool_id) public view returns (string memory, string memory) {
+        return (pools[_pool_id].party_name, pools[_pool_id].ticker);
+    }
+
+    function check_participant_in_pool(uint _pool_id, address _user) public view returns (bool) {
+        return participant_in_pool[_pool_id][_user];
+    }
+
+    function get_absolute(uint _pool_id, address _user) public view returns (uint) {
         /*
         Get the absolute amount of WEI deposited by the specified user to the target `IERC721` token.
         */
-        return shares[_pool_id][msg.sender];
+        return shares[_pool_id][_user];
     }
 
-    function get_total(uint _pool_id) public view returns(uint) {
+    function get_total(uint _pool_id) public view returns (uint) {
         /*
         Get the total deposit sum for the target `IERC721` token.
         */
@@ -84,7 +99,7 @@ contract Pool {
     }
 
     function distribute_dao_tokens(uint _pool_id, IERC20 _dao_token) public {
-        require(pools[pool_id].closed == true, "This pool is closed");
+        require(pools[pool_id].closed == false, "This pool is closed");
         pools[_pool_id].closed = true;
         uint k = _dao_token.totalSupply() / pools[_pool_id].total;
         Party storage pool = pools[_pool_id];
