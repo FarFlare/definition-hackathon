@@ -1,14 +1,16 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
-import Modal from 'react-modal';
-import cn from 'classnames';
+import Modal from "react-modal";
+import cn from "classnames";
+import Loader from "react-loader-spinner";
 
 import Card from "src/components/Card";
 import Layout from "src/components/Layout";
 import Button from "src/components/Button/index";
-import ModalContent from './components/ModalContent';
+import ModalContent from "./components/ModalContent";
 
-import raribleStore from 'src/stores/raribleStore';
+import raribleStore from "src/stores/raribleStore";
+import chainStore from "src/stores/chainStore";
 
 import { TabsEnum } from "src/constants/tabs";
 
@@ -16,51 +18,33 @@ import s from "./Main.module.css";
 
 import plus from "src/assets/images/plus.svg";
 
-const NFTS_MOCK = [
-  {
-    title: "Reusable components available for every layout",
-    price: 13123,
-    image: "https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png",
-    collected: 123,
-  },
-  {
-    title: "Reusable components available for every layout",
-    price: 13123,
-    image: "https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png",
-    collected: 123,
-  },
-  {
-    title: "Reusable components available for every layout",
-    price: 13123,
-    image: "https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png",
-    collected: 123,
-  },
-  {
-    title: "Reusable components available for every layout",
-    price: 13123,
-    image: "https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png",
-    collected: 123,
-  },
-];
-
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
   },
 };
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 const MainPage: FC = observer(() => {
   const { order } = raribleStore;
+  const { getPartyNumber, poolContract, pools, poolLoading } = chainStore;
 
   const [activeTab, setActiveTab] = useState(TabsEnum.ALL);
   const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  useEffect(() => {
+    if (poolContract) {
+      getPartyNumber(activeTab);
+    }
+  }, [poolContract, activeTab, getPartyNumber]);
+
+  console.log(pools, 'pools');
 
   return (
     <Layout>
@@ -73,7 +57,7 @@ const MainPage: FC = observer(() => {
         className={cn(s.modal, order && s.modalLarge)}
         overlayClassName={s.overlay}
       >
-        <ModalContent onClose={() => setIsOpen(false)}/>
+        <ModalContent onClose={() => setIsOpen(false)} />
       </Modal>
       <div className={s.buttonRow}>
         <Button
@@ -98,19 +82,32 @@ const MainPage: FC = observer(() => {
           </button>
         </div>
       </div>
-      <div className={s.root}>
-        {NFTS_MOCK.map(({ title, price, collected, image }) => {
+      {poolLoading ? <div className={s.loaderContainer}>
+        <Loader
+          type="Puff"
+          color="#6200E8"
+          height={100}
+          width={100}
+          timeout={3000}
+        />
+      </div> : pools && pools.length ? <div className={s.root}>
+        {pools.map(({ id, party_name, total, participants, percentage, image, price,  }) => {
           return (
             <Card
+              id={id}
               price={price}
-              collected={collected}
-              title={title}
+              collected={percentage}
+              title={party_name}
               image={image}
+              participants={participants?.length}
               className={s.mb60}
             />
           );
         })}
-      </div>
+      </div> : <div className={s.loaderContainer}>
+        <p className={s.emptyTitle}>There is no parties yet!</p>
+        <Button outlined onClick={() => setIsOpen(true)}>Try to start a new one</Button>
+      </div>}
     </Layout>
   );
 });

@@ -81,3 +81,22 @@
 .mr24 {
   margin-right: 24px;
 }
+
+.loaderContainer {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.emptyTitle {
+  margin-bottom: 84px;
+  font-family: Inter;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 24px;
+  letter-spacing: 0.44px;
+  color: #6C5CE7;
+}
