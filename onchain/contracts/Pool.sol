@@ -81,6 +81,10 @@ contract Pool {
         return (pools[_pool_id].party_name, pools[_pool_id].ticker);
     }
 
+    function get_pool(uint _pool_id) public view returns (Party memory) {
+        return pools[_pool_id];
+    }
+
     function check_participant_in_pool(uint _pool_id, address _user) public view returns (bool) {
         return participant_in_pool[_pool_id][_user];
     }

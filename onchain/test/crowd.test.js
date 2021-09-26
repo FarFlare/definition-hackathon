@@ -22,8 +22,9 @@ contract('Crowd', ([deployer, initiator, a, b, c]) => {
 
     describe("Testing Pool", async () => {
         before(async () => {
-            deposit_a = web3.utils.toWei("0.01", "ether")
+            deposit_a = web3.utils.toWei("0.03", "ether")
             deposit_b = web3.utils.toWei("0.03", "ether")
+            deposit_c = web3.utils.toWei("0.04", "ether")
         })
         it('Creates new party', async () => {
             tx = await pool.new_party(mock_nft.address, 1, party_name, ticker);
@@ -45,10 +46,16 @@ contract('Crowd', ([deployer, initiator, a, b, c]) => {
             assert.equal(call, true);
             call = await pool.get_absolute(1, b);
             assert.equal(call, deposit_b);
+            // user c
+            await pool.set_deposit(1, {from: c, value: deposit_c});
+            call = await pool.check_participant_in_pool(1, c);
+            assert.equal(call, true);
+            call = await pool.get_absolute(1, c);
+            assert.equal(call, deposit_c);
         })
         it('Check pool total', async () => {
             call = await pool.get_total(1);
-            assert.equal(call, web3.utils.toWei("0.04", "ether"));  // ToDo remove hardcode
+            assert.equal(call, web3.utils.toWei("0.1", "ether"));  // ToDo remove hardcode
         })
     })
 
@@ -79,18 +86,20 @@ contract('Crowd', ([deployer, initiator, a, b, c]) => {
         })
         it('Checks DAO Tokens are transferred to Pool', async () => {
             call = await dao_token.balanceOf(a);
-            assert.equal(call, web3.utils.toWei("25", "ether"));
+            assert.equal(call, web3.utils.toWei("30", "ether"));
             call = await dao_token.balanceOf(b);
-            assert.equal(call, web3.utils.toWei("75", "ether"));
+            assert.equal(call, web3.utils.toWei("30", "ether"));
+            call = await dao_token.balanceOf(c);
+            assert.equal(call, web3.utils.toWei("40", "ether"));
         })
     })
 
     describe("Testing Dao", async () => {
-        it('Awarding Mock NFT to user a', async () => {
+        it('Awarding Mock NFT to initiator', async () => {
             tx = await mock_nft.awardItem(initiator, "https://www.tynker.com/minecraft/editor/item/bow/5aa6f77094e01dd76d8b4567?image=true");
             truffleAssert.eventEmitted(tx,
-                'Transfer',
-                (ev) => {return ev.tokenId.toNumber() === 1}
+                                       'Transfer',
+                                       (ev) => {return ev.tokenId.toNumber() === 1}
             )
         })
         it('Transferring an NFT to Dao and register it', async () => {
@@ -98,6 +107,21 @@ contract('Crowd', ([deployer, initiator, a, b, c]) => {
             call = await mock_nft.ownerOf(1);
             assert.equal(call, dao.address);
             await dao.add_asset(mock_nft.address, 1);
+        })
+        it('New sell proposal', async () => {
+            await dao.propose_sell("Let's sell?", "It's a good time while hype", mock_nft.address, 1);
+            call = (await dao.proposal_id()).toNumber();
+            assert.equal(call, 1);
+            proposal = await dao.get_proposal(1);
+            assert.equal(proposal.title.toString(), "Let's sell?");
+        })
+        it('Vote for proposal', async () => {
+            await dao.vote(1, true, {from: a});
+            call = await dao.votes_distribution(1);
+            console.log(call);
+            // assert.equal(call, "Let's sell?");
+            // await dao.vote(1, true, {from: b});
+            // await dao.vote(1, false, {from: c});
         })
     })
 })

@@ -91,6 +91,10 @@ contract Dao is IERC721Receiver {
         proposals[proposal_id] = proposal;
     }
 
+    function get_proposal(uint _proposal_id) public view returns (Proposal memory) {
+        return proposals[_proposal_id];
+    }
+
     function vote(uint _proposal_id, bool _vote) public {  // vote: true - "For", false - "Against"
         require(dao_token.balanceOf(msg.sender) != 0, "Please stake your governance tokens to vote");
         if (_vote == true) {
@@ -104,7 +108,7 @@ contract Dao is IERC721Receiver {
         }
     }
 
-    function votes_distribution(uint _proposal_id) public returns (uint[2] memory){
+    function votes_distribution(uint _proposal_id) public view returns (uint[2] memory){
         return [proposals[_proposal_id].votes_for, proposals[_proposal_id].votes_against];
     }
 
