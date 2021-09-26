@@ -51,7 +51,7 @@ contract Pool {
 
     constructor(address _initiator){
         owner = msg.sender;
-        initiator = 0xF52B67C2241B0F7ab3b7643a0c78DAd0cB39a6A4;  // hardcoded for now
+        initiator = _initiator;  // hardcoded for now
     }
 
     function new_party(IERC721 _nft_address, uint _nft_id, string memory _party_name, string memory _ticker) public returns (uint) {
