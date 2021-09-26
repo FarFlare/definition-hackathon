@@ -15,7 +15,7 @@ contract Dao is IERC721Receiver {
         proposal_status status;
         string title;
         string description;
-        bytes tx;  // Transaction to be executed when proposal passes
+        bytes tx;  // Transaction to be executed when proposal passes.
         Asset asset;
         uint votes_for;  // Amount of "For" votes
         uint votes_against;  // Amount of "Against" votes
@@ -56,12 +56,9 @@ contract Dao is IERC721Receiver {
         if (user_stake < _amount) {  // 2*50 < 50
             dao_token.transfer(msg.sender, user_stake);
         } else {
-            if (user_stake < _amount) {
-                dao_token.transfer(msg.sender, user_stake);
-            } else {
-                dao_token.transfer(msg.sender, _amount);
+            dao_token.transfer(msg.sender, _amount);
             }
-        }
+        
     }
 
     function propose_tx(string memory _title, string memory _description, bytes memory _tx_to_execute) public {
@@ -120,7 +117,7 @@ contract Dao is IERC721Receiver {
         require(vault.asset_locked[_asset_address][_asset_id] == false, "This asset is already locked");
         if (_asset_id != 0) {  // NFT
             IERC721 asset = IERC721(_asset_address);
-            require(asset.ownerOf(_asset_id) == address(this), "This asset isn't locked");
+            require(asset.ownerOf(_asset_id) != address(this), "This asset isn't locked");
             vault.erc721.push(Asset(_asset_address, _asset_id));
         } else {  // ERC20
             vault.erc20.push(Asset(_asset_address, _asset_id));
