@@ -27,7 +27,7 @@ contract Pool {
     }
 
     uint public pool_id;
-//    function get_pool_id() public view returns(uint) {return pool_id;}
+    // function get_pool_id() public view returns(uint) {return pool_id;}
     // Map pool_id => user address => absolute deposit amount.
     mapping(uint => mapping(address => uint)) shares;
     // Store whether the user participates the specific pool. 

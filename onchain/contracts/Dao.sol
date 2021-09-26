@@ -35,7 +35,7 @@ contract Dao is IERC721Receiver {
 
     Vault vault;
     mapping(uint => Proposal) proposals;  // Sale proposals by their ids
-    mapping(address => uint) stakes;  // Staked voting power: user => amount
+//    mapping(address => uint) stakes;  // Staked voting power: user => amount. DEPRECATED
 
     constructor(string memory _name,
                 IERC20 _dao_token) {
@@ -43,11 +43,11 @@ contract Dao is IERC721Receiver {
         dao_token = _dao_token;
     }
 
-    function stake(uint _amount) public {
-        if (dao_token.allowance(msg.sender, address(this)) < _amount) {
+    function stake(uint _amount, address stake_for) public {
+        if (dao_token.allowance(stake_for, address(this)) < _amount) {
             dao_token.approve(address(this), _amount);
         }
-        dao_token.transferFrom(msg.sender, address(this), _amount);
+        dao_token.transferFrom(stake_for, address(this), _amount);
         stakes[msg.sender] += _amount;
     }
 
