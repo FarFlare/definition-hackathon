@@ -4,15 +4,18 @@ const Pool = artifacts.require("Pool");
 const Factory = artifacts.require("Factory");
 const Dao = artifacts.require("Dao");
 const DaoToken = artifacts.require("DaoToken");
+const MockNft = artifacts.require("MockNft");
 
-contract('Crowd', ([deployer, nft, a, b, c]) => {
+contract('Crowd', ([deployer, initiator, a, b, c]) => {
     let test = null
 
     before(async () => {
         pool = await Pool.new();
         factory = await Factory.new(pool.address);
+        mock_nft = await MockNft.new();
         dao = null;
         dao_token = null;
+
         party_name = "Crowd Protocol";
         ticker = "CRWD";
     })
@@ -23,7 +26,7 @@ contract('Crowd', ([deployer, nft, a, b, c]) => {
             deposit_b = web3.utils.toWei("0.03", "ether")
         })
         it('Creates new party', async () => {
-            tx = await pool.new_party(nft, 1, party_name, ticker);
+            tx = await pool.new_party(mock_nft.address, 1, party_name, ticker);
             truffleAssert.eventEmitted(tx,
                 'NewParty',
                 (ev) => {return (ev.pool_id).toNumber() === 1}
@@ -79,6 +82,22 @@ contract('Crowd', ([deployer, nft, a, b, c]) => {
             assert.equal(call, web3.utils.toWei("25", "ether"));
             call = await dao_token.balanceOf(b);
             assert.equal(call, web3.utils.toWei("75", "ether"));
+        })
+    })
+
+    describe("Testing Dao", async () => {
+        it('Awarding Mock NFT to user a', async () => {
+            tx = await mock_nft.awardItem(initiator, "https://www.tynker.com/minecraft/editor/item/bow/5aa6f77094e01dd76d8b4567?image=true");
+            truffleAssert.eventEmitted(tx,
+                'Transfer',
+                (ev) => {return ev.tokenId.toNumber() === 1}
+            )
+        })
+        it('Transferring an NFT to Dao and register it', async () => {
+            await mock_nft.safeTransferFrom(initiator, dao.address, 1, {from: initiator})
+            call = await mock_nft.ownerOf(1);
+            assert.equal(call, dao.address);
+            await dao.add_asset(mock_nft.address, 1);
         })
     })
 })

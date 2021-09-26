@@ -120,7 +120,7 @@ contract Dao is IERC721Receiver {
         require(vault.asset_locked[_asset_address][_asset_id] == false, "This asset is already locked");
         if (_asset_id != 0) {  // NFT
             IERC721 asset = IERC721(_asset_address);
-            require(asset.ownerOf(_asset_id) != address(this), "This asset isn't locked");
+            require(asset.ownerOf(_asset_id) == address(this), "This asset isn't locked");
             vault.erc721.push(Asset(_asset_address, _asset_id));
         } else {  // ERC20
             vault.erc20.push(Asset(_asset_address, _asset_id));

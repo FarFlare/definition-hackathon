@@ -11,12 +11,14 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "axios": "^0.21.4",
     "classnames": "^2.3.1",
     "hardhat": "^2.4.1",
     "mobx": "^6.3.2",
     "mobx-react-lite": "^3.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-modal": "^3.14.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "typescript": "^4.1.2",
@@ -50,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-modal": "^3.12.1",
     "@types/react-router-dom": "^5.1.7",
     "gh-pages": "^3.2.3",
     "react-app-rewired": "^2.1.8"

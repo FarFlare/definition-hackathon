@@ -1,0 +1,39 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nameBlock {
+  display: flex;
+  align-items: center;
+  justify-conter: start;
+}
+
+.name {
+  margin: 0;
+  font-family: Inter;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 18px;
+  letter-spacing: 0.25px;
+  color: #000000;
+}
+
+.avatar {
+  height: 12px;
+  width: 12px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: #000;
+}
+
+.price {
+  margin: 0;
+  font-family: Inter;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 18px;
+  letter-spacing: 0.25px;
+  color: #000000;
+}

@@ -1,12 +1,38 @@
 .root {
-  box-sizing: border-box;
-  height: 60px;
-  padding: 20px 20px 20px 24px;
-  border: none;
-  border-radius: 15px;
-  background: #ffffff;
-  color: #232326;
-  outline: none;
-  font-family: 'Averta Demo PE';
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  background: rgba(198, 190, 255, 0.2);
+  border-radius: 10px;
+}
+
+.label {
+  margin-bottom: 12px;
+  font-family: Inter;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.25px;
+  color: #000;
+}
+
+.input {
+  padding-left: 12px;
+  font-family: Inter;
+  font-weight: bold;
   font-size: 18px;
+  line-height: 36px;
+  letter-spacing: 0.25px;
+  background: #FFFFFF;
+  border-radius: 15px;
+  border: none;
+}
+
+.input::placeholder {
+  font-family: Inter;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 36px;
+  letter-spacing: 0.25px;
+  color: #9095B4;
 }
