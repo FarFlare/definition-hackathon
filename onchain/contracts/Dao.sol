@@ -16,6 +16,7 @@ contract Dao is IERC721Receiver {
         string title;
         string description;
         bytes tx;  // Transaction to be executed when proposal passes
+        Asset asset;
         uint votes_for;  // Amount of "For" votes
         uint votes_against;  // Amount of "Against" votes
         uint threshold;  // Amount of voting power which took a part in voting process for the proposal to be closed
@@ -70,21 +71,21 @@ contract Dao is IERC721Receiver {
                                             _title,
                                             _description,
                                             _tx_to_execute,
-                                            address(0x0),
-                                            0,
+                                            Asset(address(0x0), 0),
                                             0, 0,
                                             (3*dao_token.totalSupply())/4);
         proposals[proposal_id] = proposal;
     }
 
-    function propose_sell(string memory _title, string memory _description, bytes memory _tx_to_execute, IERC721 _nft_address, uint _nft_id) public {
+    function propose_sell(string memory _title, string memory _description, IERC721 _asset_address, uint _asset_id) public {
         proposal_id += 1;
+        bytes memory empty;
+        Asset memory asset = Asset(address(_asset_address), _asset_id);
         Proposal memory proposal = Proposal(proposal_status.ACTIVE,
                                     _title,
                                     _description,
-                                    _tx_to_execute,
-                                    _nft_address,
-                                    _nft_id,
+                                    empty,
+                                    asset,
                                     0, 0,
                                     (3*dao_token.totalSupply())/4);
         proposals[proposal_id] = proposal;
